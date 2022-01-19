@@ -1,0 +1,68 @@
+
+<div class="row bt-tuan1">
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 p-5">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>ID</th>
+          <th>Tên</th>
+          <th>Phân Loại</th>
+          <th>
+            Cập Nhật
+          </th>
+          <th>
+            xóa SP
+          </th>
+        </tr>
+      </thead>
+      <tbody >
+        <!-- set ngclass chan le -->
+        <tr *ngFor="let item of myData;let i = index;let o=odd;let e=even" [ngClass]="{odd:o,even:e}">
+          <td>{{i+1}}</td>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <ng-container [ngSwitch]="item.phanLoai">
+            <td *ngSwitchCase="'traiCay'">Trái Cây</td>
+            <td *ngSwitchCase="'rauCu'">Rau Củ</td>
+            <td *ngSwitchCase="'dongVat'">Động Vật</td>
+            <td *ngSwitchDefault>Chưa Phân Loại</td>
+          </ng-container>
+          <td>
+            <button type="button" class="btn btn-info">Cập nhật</button>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger">Xóa SP</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 p-5">
+    <form>
+      <div class="form-group">
+        <label for="nameF">Tên Sản Phẩm</label>
+        <input type="text" class="form-control" id="nameF" [(ngModel)]="tenSanPham" [ngModelOptions]="{standalone: true}">
+        <small id="nameF" class="form-text">{{tenSanPham}}</small>
+      </div>
+      <label for="phanLoai">Phân Loại</label>
+      <select name="" id="phanLoai" class="form-control" required="required" value={phanLoai} #phanLoai1 >
+        <option value="traiCay">Trái Cây</option>
+        <option value="rauCu">Rau Củ</option>
+        <option value="dongVat">Động Vật</option>
+      </select>
+      <small id="phanLoai" class="form-text text-muted">{{phanLoai}}</small>
+      <label for="status">Trạng Thái</label>
+      <select name="" id="status" class="form-control" required="required" value={trangThai} #trangThai1 >
+        <option value='1'>còn hàng</option>
+        <option value='-1'>hết hàng</option>
+      </select>
+      <small id="status" class="form-text text-muted">{{trangThai}}</small>
+      <button type="submit" class="btn btn-primary m-5">Thêm Sản Phẩm Mới</button>
+      <button type="button" class="btn btn-warning ml-5">Cập nhật sản phẩm</button>
+    </form>
+  </div>
+
+</div>
+
