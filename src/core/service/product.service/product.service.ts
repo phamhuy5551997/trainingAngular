@@ -1,16 +1,18 @@
+
 import { Injectable } from '@angular/core';
+import { productModel } from 'src/core/models/product.model';// dinh nghia kieu du lieu
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private listdata:Array<any>=[
-    {id:1,name:"cam",phanLoai:'traiCay',trangThai:true},
-    {id:2,name:"xoài",phanLoai:'traiCay',trangThai:true},
-    {id:3,name:"củ cải",phanLoai:'rauCu',trangThai:false},
-    {id:4,name:"cà rốt",phanLoai:'rauCu',trangThai:true},
-    {id:5,name:"táo",phanLoai:'traiCay',trangThai:false}
+  private listdata:productModel[]=[
+    {id:1,name:"cam",phanLoai:'traiCay',trangThai:'1'},
+    {id:2,name:"xoài",phanLoai:'traiCay',trangThai:'1'},
+    {id:3,name:"củ cải",phanLoai:'rauCu',trangThai:'-1'},
+    {id:4,name:"cà rốt",phanLoai:'rauCu',trangThai:'1'},
+    {id:5,name:"táo",phanLoai:'traiCay',trangThai:'-1'}
   ]
 
   private dataTemp:any=[]
@@ -20,15 +22,12 @@ export class ProductService {
   }
 
   addData(data:any){
-    this.listdata.forEach((item,i)=>{
-      if(parseInt(data.id)=== item.id){
-        alert(`id ${data.id} đã bị trùng vui lòng dùng id khác !!`)
-      }else{
-        this.listdata.push(data)
-        return this.listdata
-      }
-    })
+    const id = this.listdata.length + 1;
+    const newData = new productModel(id,data.name,data.phanLoai,data.trangThai);
+    this.listdata.push(newData)
   }
+
+
 
   editData(data:any){
     this.listdata.forEach((item,i)=>{
@@ -36,7 +35,6 @@ export class ProductService {
         this.listdata.splice(i,1,data)
       }
     })
-    return this.listdata
   }
 
   deleteData(id:number){
@@ -44,12 +42,14 @@ export class ProductService {
     return dataNew
   }
 
-  filterStatus(value:number){
+  filterStatus(value:string){
   let arrTemp = this.listdata.filter(item => {
-      if(value === 1){
-        return item.trangThai === true
+      if(value === '1'){
+        return item.trangThai === '1'
+      }else if(value === '-1'){
+       return item.trangThai === '-1'
       }else{
-        item.trangThai === true
+        return item
       }
     })
     this.dataTemp = [...arrTemp]
