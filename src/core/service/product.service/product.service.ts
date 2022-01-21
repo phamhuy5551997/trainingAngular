@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { productModel } from 'src/core/models/product.model';// dinh nghia kieu du lieu
-import { replaceVNtext } from 'src/utils/replace';
+import { replaceVNtext } from 'src/app/utils/replace';
 
 @Injectable({
   providedIn: 'root'

@@ -10,6 +10,10 @@ import { CardComponent } from './client-component/card/card.component';
 import { ProfileComponent } from './client-component/profile/profile.component';
 import { HeaderComponent } from './client-component/header/header.component';
 import { BtTuan1Component } from './client-component/bt-tuan1/bt-tuan1.component';
+//pipe module
+import { PipeModuleModule } from 'src/core/pipes/pipe-module/pipe-module.module';
+//directive
+import { DirectiveModule } from 'src/core/shared/directive/directive.module';
 
 
 
@@ -18,7 +22,9 @@ import { BtTuan1Component } from './client-component/bt-tuan1/bt-tuan1.component
   imports: [
     CommonModule,
     ClientRoutingModule,
-    FormsModule
+    FormsModule,
+    PipeModuleModule,
+    DirectiveModule
   ]
 })
 export class ClientModule { }

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { FoodterComponent } from './components/foodter/foodter.component';
 import { Com404Component } from './components/com404/com404.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +18,6 @@ import { Com404Component } from './components/com404/com404.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -34,7 +34,7 @@
             <input type="text" name="" class="form-control" value={{serch}}
               placeholder="tìm kiếm ...." [(ngModel)]="serch">
           </td>
-          <td><button type="button" class="btn btn-info ml-3" (click)="onSearchProduct()">Tìm Kiếm</button></td>
+          <td><button appBtnHover [defaultColor]="'#17a2b8'" type="button" class="btn btn-info ml-3" (click)="onSearchProduct()">Tìm Kiếm</button></td>
         </tr>
       </thead>
       <tbody>
@@ -42,24 +42,24 @@
         <tr *ngFor="let item of myData; let i = index; let o = odd; let e = even" [ngClass]="{ odd: o, even: e }">
           <td>{{ i + 1 }}</td>
           <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
+          <td class="full">{{ item.name | substringPipe }}</td>
           <ng-container [ngSwitch]="item.phanLoai">
             <td *ngSwitchCase="'traiCay'">Trái Cây</td>
             <td *ngSwitchCase="'rauCu'">Rau Củ</td>
             <td *ngSwitchCase="'dongVat'">Động Vật</td>
             <td *ngSwitchDefault>Chưa Phân Loại</td>
           </ng-container>
-          <td>
+          <td class="full">
             <p [ngClass]="{'Active':item.trangThai === '1','noActive':item.trangThai === '-1'}"
               (click)="onUpdateStatus(item)">{{item.trangThai ==='1'
               ?
               'Còn Hàng':'Hết Hàng'}}</p>
           </td>
-          <td>
-            <button type="button" class="btn btn-info" (click)="onGetDataForm(item)">Cập nhật</button>
+          <td class="full">
+            <button appBtnHover [defaultColor]="'#17a2b8'" type="button" class="btn btn-info" (click)="onGetDataForm(item)">Cập nhật</button>
           </td>
-          <td>
-            <button type="button" class="btn btn-danger" (click)="onDeleteData(item.id)">Xóa SP</button>
+          <td class="">
+            <button appBtnHover  [defaultColor]="'#dc3545'" type="button" class="btn btn-danger" (click)="onDeleteData(item.id)">Xóa SP</button>
           </td>
         </tr>
       </tbody>
@@ -70,7 +70,7 @@
     <form>
       <div class="form-group">
         <label for="nameF">Tên Sản Phẩm</label>
-        <input type="text" class="form-control" id="nameF" [(ngModel)]="tenSanPham"
+        <input appBtnHover type="text" class="form-control" id="nameF" [(ngModel)]="tenSanPham"
           [ngModelOptions]="{ standalone: true }" />
         <small id="nameF" class="form-text text-muted">two-way binding : {{ tenSanPham }}</small>
       </div>
