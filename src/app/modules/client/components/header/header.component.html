@@ -1,0 +1,96 @@
+<div class="headerClient" id="headerClient" class="p-d-flex p-ai-center ">
+  <div class="header__left">
+    <div class="headerMenu__image">
+      <a href="#">
+        <img src="../../../../../assets/image/logo.jpg" alt="..." />
+      </a>
+    </div>
+    <div class="headerMenu__computer p-d-flex">
+      <p>
+        <a href="#carousel">Home</a>
+      </p>
+      <p>
+        <a href="#">Movie</a>
+      </p>
+      <p>
+        <a href="#">About</a>
+      </p>
+      <p>
+        <a href="#">Contact</a>
+      </p>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center;" class="header__right">
+    <div class="headerMenu__mobile1">
+      <span class="p-float-label p-mr-2" >
+        <input id="float-input" type="text" pInputText />
+        <label for="float-input">Search</label>
+      </span>
+      <span>
+        <p-button
+        type="button"
+        icon="pi pi-search"
+        class="p-button-rounded"
+      ></p-button>
+      </span>
+    </div>
+    <span>
+      <p-button
+      type="button"
+      icon="pi pi-key"s
+      class="p-ml-5"
+      label="Sign-In"
+    ></p-button>
+    </span>
+    <span class="headerMenu__mobile2">
+      <p-button
+      type="button"
+      (click)="visibleSidebar1 = true"
+      icon="pi pi-align-justify"
+      class="p-ml-3"
+    ></p-button>
+    </span>
+  </div>
+</div>
+<!-- mobile -->
+<p-sidebar
+[(visible)]="visibleSidebar1"
+[baseZIndex]="10000"
+[style]="{ width: '21em' }"
+[transitionOptions]="'400ms'"
+>
+<h3 class="p-text-center">Menu</h3>
+<hr>
+<div class="p-d-flex p-ai-center">
+  <span class="p-float-label" style="height: 40px; margin-right: 10px;" >
+    <input id="float-input" type="text" pInputText style="height: 40px;" />
+    <label for="float-input">Search</label>
+  </span>
+  <span>
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-search"
+      class="p-button-rounded "
+      (click)="visibleSidebar1 = false"
+    ></button>
+  </span>
+</div>
+<hr>
+<div class="header__sidebar">
+  <p (click)="visibleSidebar1 = false"><i class="pi pi-home"></i> Home</p>
+  <p (click)="visibleSidebar1 = false"><i class="pi pi-align-left"></i> Movie</p>
+  <p (click)="visibleSidebar1 = false"><i class="pi pi-info-circle"></i> About</p>
+  <p (click)="visibleSidebar1 = false"><i class="pi pi-phone"></i> Contact</p>
+</div>
+<hr>
+<p-button
+  type="button"
+  (click)="visibleSidebar1 = false"
+  label="Cancel"
+  styleClass="p-button-danger"
+  class="p-text-center"
+></p-button>
+</p-sidebar>
+<!-- mobile -->

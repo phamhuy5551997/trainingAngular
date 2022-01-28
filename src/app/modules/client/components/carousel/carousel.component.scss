@@ -1,0 +1,62 @@
+@import '../../../../utils/responsive.scss';
+#carousel{
+  @include responsive(sm){
+    padding-top: 60px;
+  }
+  .carousel-inner{
+    .carousel-item{
+      height: 100vh;
+      position: relative;
+      @include responsive(xl){
+        height: 500px;
+      }
+      @include responsive(sm){
+        height: 250px;
+      }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit:cover;
+        background-position-y: center;
+      }
+      .carousel__button{
+        position: absolute;
+        left: 50%;
+        top:85%;
+        transform: translate(-50%,-85%);
+        @include responsive(sm){
+          left: 50%;
+          top:90%;
+          transform: translate(-50%,-90%);
+        }
+
+      }
+    }
+  }
+  .carousel-control-prev, .carousel-control-next{
+    margin-bottom: 50px;
+    @include responsive(md){
+      margin-bottom: 30px;
+    }
+    i{
+      font-size: 2em;
+    }
+
+  }
+  .carousel-indicators{
+    li.active{
+      background-color: $color-primary;
+      border: 4px solid rgba($color: #fff, $alpha: 0.5);
+    }
+    li{
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin: 10px;
+      border: 4px solid rgba($color: #fff, $alpha: 0);
+      @include responsive(sm){
+        display: none;
+      }
+    }
+  }
+}

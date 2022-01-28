@@ -1,0 +1,29 @@
+// responsive
+$breakpoint: (
+  "full-hd": 1920px,
+  "xxl": 1366px,
+  "xl": 1150px,
+  "lg": 993px,
+  "md": 769px,
+  "sm": 577px,
+  "xs": 376px,
+);
+// responsive
+@mixin responsive($screen) {
+  @if (map-has-key($map: $breakpoint, $key: $screen)) {
+    $value: map-get(
+      $map: $breakpoint,
+      $key: $screen,
+    );
+    @media screen and (max-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn ('screen ko hop le');
+  }
+}
+// **********************Responsive*************************
+
+$color-primary: #673AB7;
+$color-secondary:#D32F2F;
+
