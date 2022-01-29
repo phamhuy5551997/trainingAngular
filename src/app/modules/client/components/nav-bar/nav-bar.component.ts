@@ -10,41 +10,14 @@ export class NavBarComponent implements OnInit {
 
   items: MenuItem[];
   displayBasic2:boolean;
+  visibleUser:boolean;
+  userLogin:boolean=false;
 
   constructor() {}
 
   ngOnInit() {
-      this.items = [{
-          label: 'Options',
-          items: [{
-              label: 'Update',
-              icon: 'pi pi-refresh',
-              command: () => {
-                  this.update();
-              }
-          },
-          {
-              label: 'Delete',
-              icon: 'pi pi-times',
-              command: () => {
-                  this.delete();
-              }
-          }
-          ]},
-          {
-              label: 'Navigate',
-              items: [{
-                  label: 'Angular',
-                  icon: 'pi pi-external-link',
-                  url: 'http://angular.io'
-              },
-              {
-                  label: 'Router',
-                  icon: 'pi pi-upload',
-                  routerLink: '/fileupload'
-              }
-          ]}
-      ];
+
+
   }
 
   update() {

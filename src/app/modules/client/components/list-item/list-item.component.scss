@@ -1,0 +1,13 @@
+#list__movie{
+  width: 70%;
+  margin: auto;
+  .list__movie{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+  }
+}
+#list__pagination{
+  padding: 50px 0;
+  text-align: center;
+}

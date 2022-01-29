@@ -1,1 +1,20 @@
-<p>item works!</p>
+<section id="cart__movie">
+  <div class="cart__img">
+    <img src={{movie.hinhAnh}} alt="..." width="200px">
+    <div class="show__case">
+      <i class="pi pi-caret-right"></i>
+    </div>
+  </div>
+  <div class="cart__content">
+    <p>{{movie.tenPhim}}</p>
+  </div>
+  <div class="cart__foodter">
+    <div>
+      <p-button label="Detail" class="p-mr-3" icon="pi pi-info-circle"></p-button>
+      <button pButton pRipple type="button" label="Bookmark" icon="pi pi-tag"class="p-button-outlined"></button>
+    </div>
+    <div class="p-my-4">
+      <p-rating [ngModel]="val" readonly="true" stars="5" [cancel]="false"></p-rating>
+    </div>
+  </div>
+</section>

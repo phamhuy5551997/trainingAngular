@@ -1,3 +1,4 @@
+@import "../../../../utils/responsive.scss";
 #navbar__client{
   padding: 20px;
   margin: 30px 0;
@@ -5,4 +6,10 @@
   width: 30%;
   margin-left: auto;
   border-radius: 100px 0 0 0;
+  @include responsive(lg){
+    width: 40%;
+  }
+  @include responsive(sm){
+    width: 70%;
+  }
 }

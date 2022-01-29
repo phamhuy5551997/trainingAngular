@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
    let type1 = document.getElementById('headerClient');
     document.addEventListener("scroll",()=> {
       const scrolled = window.scrollY;
-      console.log(scrolled);
+      //console.log(scrolled);
       if(scrolled > 400){
         type1.style.background="#001";
       }else{

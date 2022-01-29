@@ -11,7 +11,11 @@ import {CarouselModule} from 'primeng/carousel';
 import {ScrollTopModule} from 'primeng/scrolltop';
 import {DialogModule} from 'primeng/dialog';
 import {MenuModule} from 'primeng/menu';
-
+import {CardModule} from 'primeng/card';
+import {RatingModule} from 'primeng/rating';
+import {TableModule} from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
 @NgModule({
   declarations: [],
   imports: [
@@ -27,6 +31,11 @@ import {MenuModule} from 'primeng/menu';
     ScrollTopModule,
     DialogModule,
     MenuModule,
+    CardModule,
+    RatingModule,
+    TableModule,
+    PaginatorModule,
+    NgxPaginationModule,
   ],
   exports:[
     AccordionModule,
@@ -40,6 +49,11 @@ import {MenuModule} from 'primeng/menu';
     ScrollTopModule,
     DialogModule,
     MenuModule,
+    CardModule,
+    RatingModule,
+    TableModule,
+    PaginatorModule,
+    NgxPaginationModule,
   ]
 })
 export class PrimeNgModule { }

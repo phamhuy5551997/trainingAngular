@@ -13,14 +13,14 @@
       <div class="carousel-item active">
         <img [src]="'../../../../../assets/image/carousel/'+itemActive.img+'.jpg'" class="d-block w-100" alt="...">
         <div class="carousel__button">
-          <p-button label="Info" [routerLink]="'/detail/'+ itemActive.tolink" icon="pi pi-exclamation-circle" class="p-mr-2" [style]="{}" ></p-button>
+          <p-button label="Tickers" [routerLink]="'/detail/'+ itemActive.tolink" icon="pi pi-calendar-times" class="p-mr-2" [style]="{}" ></p-button>
           <app-pop-up [dataPopUp]="itemActive"></app-pop-up>
         </div>
       </div>
       <div class="carousel-item" *ngFor="let item of list">
         <img [src]="'../../../../../assets/image/carousel/'+ item.img + '.jpg'" class="d-block w-100" alt="...">
         <div class="carousel__button">
-          <p-button label="Info" [routerLink]="'/detail/'+ item.tolink" icon="pi pi-exclamation-circle" class="p-mr-2"></p-button>
+          <p-button label="Tickers" [routerLink]="'/detail/'+ item.tolink" icon="pi pi-calendar-times" class="p-mr-2"></p-button>
           <app-pop-up [dataPopUp]="item"></app-pop-up>
         </div>
       </div>

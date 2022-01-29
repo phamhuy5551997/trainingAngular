@@ -11,6 +11,10 @@
   width: 100%;
   z-index: 100;
   transition: all 1s;
+  @include responsive(full-hd){
+    max-width: 1360px;
+    left: auto;
+  }
   input{
     border-radius: 10px;
     height: 35px;
