@@ -15,10 +15,10 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit(): void {
     this.getlist();
-    console.log(this.list);
+    //console.log(this.list);
     let data1 = this.list.shift();
     this.itemActive= data1
-    console.log(this.itemActive);
+    //console.log(this.itemActive);
   }
   getlist(){
     let data = this.carouselService.getListCarousel();

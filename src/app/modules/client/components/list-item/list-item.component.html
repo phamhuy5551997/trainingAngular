@@ -1,9 +1,12 @@
+<p-toast
+  [breakpoints]="{ '560px': { width: '100%', right: '0', left: '0' } }"
+></p-toast>
 <section id="list__movie">
   <div id="list__pagination">
     <pagination-controls (pageChange)=" page = $event" class="my-pagination" responsive="true"></pagination-controls>
   </div>
   <div class="list__movie">
-    <app-item [movie]='item' *ngFor="let item of listMovie | paginate: { itemsPerPage: 8, currentPage: page }" ></app-item>
+    <app-item [movie]='item' (movieOut)="eventBookmark($event)" *ngFor="let item of listMovie | paginate: { itemsPerPage: 8, currentPage: page }" ></app-item>
   </div>
   <div id="list__pagination">
     <pagination-controls (pageChange)=" page = $event" class="my-pagination" responsive="true"></pagination-controls>

@@ -1,13 +1,31 @@
+@import '../../../../utils/responsive.scss';
 #list__movie{
   width: 70%;
   margin: auto;
+  @include responsive(xl){
+    width: 85%;
+  }
+  @include responsive(sm){
+    width: 95%;
+  }
+
   .list__movie{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     grid-gap: 10px;
+    @include responsive(lg){
+      grid-template-columns: repeat(3,1fr);
+    }
+    @include responsive(sm){
+      grid-template-columns: repeat(2,1fr);
+      grid-gap: 4px;
+    }
   }
 }
 #list__pagination{
   padding: 50px 0;
-  text-align: center;
+  text-align: right;
+  @include responsive(sm){
+    padding: 10px 0;
+  }
 }

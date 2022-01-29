@@ -16,6 +16,12 @@ import {RatingModule} from 'primeng/rating';
 import {TableModule} from 'primeng/table';
 import {PaginatorModule} from 'primeng/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToastModule} from 'primeng/toast';
+import {TooltipModule} from 'primeng/tooltip';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -36,6 +42,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     TableModule,
     PaginatorModule,
     NgxPaginationModule,
+    SplitButtonModule,
+    MessagesModule,
+    MessageModule,
+    ToastModule,
+    TooltipModule,
   ],
   exports:[
     AccordionModule,
@@ -54,6 +65,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
     TableModule,
     PaginatorModule,
     NgxPaginationModule,
+    SplitButtonModule,
+    MessagesModule,
+    MessageModule,
+    ToastModule,
+    TooltipModule,
   ]
 })
 export class PrimeNgModule { }

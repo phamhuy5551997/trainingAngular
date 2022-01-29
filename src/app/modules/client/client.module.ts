@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ClientComponent } from './client.component';
 //module
 import { ClientRoutingModule } from './client-routing.module';
+import { PipeModule } from 'src/app/core/pipes/pipe.module';
 //module
 import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
@@ -16,11 +17,13 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { ListItemComponent } from './components/list-item/list-item.component';
 import { ItemComponent } from './components/item/item.component';
 import { DetailItemComponent } from './components/detail-item/detail-item.component';
+import { PopUpComponent } from './components/pop-up/pop-up.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 
 //module primeNG
 import { PrimeNgModule } from '../../../app/core/shared/prime-ng/prime-ng.module';
-import { PopUpComponent } from './components/pop-up/pop-up.component';
-import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+
 
 
 
@@ -39,13 +42,14 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     ItemComponent,
     DetailItemComponent,
     PopUpComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     ClientRoutingModule,
-    PrimeNgModule
+    PrimeNgModule,
+    PipeModule
   ]
 })
 export class ClientModule { }
