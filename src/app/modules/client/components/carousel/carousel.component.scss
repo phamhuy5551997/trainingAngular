@@ -1,8 +1,5 @@
 @import '../../../../utils/responsive.scss';
 #carousel{
-  @include responsive(sm){
-    padding-top: 60px;
-  }
   .carousel-inner{
     .carousel-item{
       height: 100vh;

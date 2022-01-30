@@ -5,6 +5,7 @@
   transition: all 0.5s;
   border-radius: 5px;
   overflow-x: hidden;
+  //pi-info-circle p-button-icon p-button-icon-left ng-star-inserted"
   .cart__img{
     height: 320px;
     transition: all 0.8s;
@@ -49,6 +50,12 @@
     div{
       transition: all 0.7s;
     }
+    .p-button{
+      @include responsive(sm){
+        padding: 5px;
+        font-size: 8px;
+      }
+    }
   }
   &:hover{
     border-color: rgba($color: #000000, $alpha: 0.4);
@@ -68,9 +75,6 @@
       }
     }
     .cart__foodter{
-      div{
-        transform: translate(10px,-10px);
-      }
     }
   }
 }

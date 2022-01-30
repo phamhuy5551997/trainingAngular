@@ -12,18 +12,21 @@
   </div>
   <div class="cart__foodter">
     <div>
-      <p-button
+      <button
+        pButton
+        pRipple
+        type="button"
         label="Detail"
-        class="p-mr-3"
         icon="pi pi-info-circle"
-      ></p-button>
+        class="p-mr-3"
+      ></button>
       <button
         pButton
         pRipple
         type="button"
         label="Bookmark"
         icon="pi pi-tag"
-        class="p-button-outlined p-mt-3"
+        class="p-button-outlined"
         (click)="addStore()"
       ></button>
     </div>

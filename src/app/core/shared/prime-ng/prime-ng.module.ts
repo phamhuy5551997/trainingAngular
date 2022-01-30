@@ -21,6 +21,8 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
 import {TooltipModule} from 'primeng/tooltip';
+import {PanelModule} from 'primeng/panel';
+
 
 @NgModule({
   declarations: [],
@@ -47,6 +49,7 @@ import {TooltipModule} from 'primeng/tooltip';
     MessageModule,
     ToastModule,
     TooltipModule,
+    PanelModule,
   ],
   exports:[
     AccordionModule,
@@ -70,6 +73,7 @@ import {TooltipModule} from 'primeng/tooltip';
     MessageModule,
     ToastModule,
     TooltipModule,
+    PanelModule,
   ]
 })
 export class PrimeNgModule { }
