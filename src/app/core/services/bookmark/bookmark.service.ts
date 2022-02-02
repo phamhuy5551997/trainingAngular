@@ -48,4 +48,17 @@ export class BookmarkService {
     }
     return dataBookmark;
   }
+
+  DeleteBookmark(id:number){
+    let dataBookmark:any=[];
+    if(localStorage.getItem('bookmark-movie')){
+      let data1 = JSON.parse(localStorage.getItem('bookmark-movie'));
+      dataBookmark = [...data1];
+    }
+    let data2 = dataBookmark?.filter(item=>item.maPhim !== id);
+    localStorage.setItem('bookmark-movie',JSON.stringify(data2));
+    return data2;
+    //console.log(data2);
+    //return dataBookmark;
+  }
 }

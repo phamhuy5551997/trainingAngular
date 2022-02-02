@@ -8,4 +8,17 @@ html,body{
   max-width: 1360px;
   margin: auto;
   scroll-behavior: smooth;
+  // .p-dialog, .p-dialog-mask.p-component-overlay{
+  //   background-color: rgba($color: #f00, $alpha: 0.7) !important;
+  // }
+}
+body{
+  .p-dialog, .p-dialog-mask.p-component-overlay{
+    background-color: rgba($color: #000, $alpha: 0.8) !important;
+  }
+  .p-dialog-header{
+    .p-dialog-title{
+      color: #f00;
+    }
+  }
 }

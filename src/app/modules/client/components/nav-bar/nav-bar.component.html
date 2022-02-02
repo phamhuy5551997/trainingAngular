@@ -71,39 +71,51 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 15%; text-align: center">ID</th>
-          <th style="width: 15%; text-align: center">Image</th>
-          <th style="width: 30%; text-align: center">Name</th>
-          <th style="width: 40%; text-align: center">Action</th>
+          <th style="width: 15%;">ID</th>
+          <th style="width: 15%;">Image</th>
+          <th style="width: 30%;">Name</th>
+          <th style="width: 40%;">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-book>
         <tr class="tr__hover">
-          <td style="text-align: center">{{ book.maPhim }}</td>
-          <td style="text-align: center" pRipple>
-            <img src="{{ book.hinhAnh }}" alt="..." width="40px" />
+          <td>{{ book.maPhim }}</td>
+          <td pRipple>
+            <img src="{{ book.hinhAnh }}" alt="..."  />
           </td>
-          <td style="text-align: center">
+          <td>
             {{ book.tenPhim | subStringPipe: 12 }}
           </td>
-          <td style="text-align: center">
+          <td>
             <button
               pButton
               pRipple
               type="button"
               label="Detail"
               class="p-button-outlined p-mr-md-2 p-text-center"
+              [routerLink]="'/detail/'+ book.maPhim"
             ></button>
-            <button pButton pRipple type="button" label="Delete" class="p-button-outlined p-button-danger p-text-center"></button>
+            <button
+              pButton
+
+              type="button"
+              label="Delete"
+              class="p-button-outlined p-button-danger p-text-center"
+              (click)="showConfirm(book);displayBasic2 = false"
+            ></button>
           </td>
         </tr>
       </ng-template>
     </p-table>
   </div>
   <ng-template #noBookmark>
-    <div style="text-align: center;">
-      <h3>Is Not Movies Bookmark</h3>
-      <p>!!!!!!!!!!!!!</p>
+    <div class="no__bookmark">
+      <div class="no__bookmark--icon">
+        <i class="pi pi-tags"></i>
+      </div>
+      <div class="no__bookmark--icon">
+        <h3>Is Not Movies Bookmark</h3>
+      </div>
     </div>
   </ng-template>
   <ng-template pTemplate="footer">
@@ -115,3 +127,23 @@
     ></p-button>
   </ng-template>
 </p-dialog>
+<p-toast></p-toast>
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div class="p-flex p-flex-column" style="flex: 1">
+          <div class="p-text-center">
+              <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+              <h4>{{message.summary}}</h4>
+              <p>{{message.detail}}</p>
+          </div>
+          <div class="p-grid p-fluid">
+              <div class="p-col-6">
+                  <button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-danger"></button>
+              </div>
+              <div class="p-col-6">
+                  <button type="button" pButton (click)="onReject()" label="No"></button>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-toast>

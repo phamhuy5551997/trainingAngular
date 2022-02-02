@@ -13,3 +13,46 @@
     width: 70%;
   }
 }
+
+p-table{
+  text-align: center;
+  tr{
+    &:hover{
+      background-color: rgba($color: #000, $alpha: 0.2);
+    }
+    th,td{
+      text-align: center;
+    }
+    td{
+      img{
+        width: 40px;
+      }
+    }
+  }
+  .p-button{
+    &:hover{
+      background-color: #000 !important;
+    }
+    @include responsive(sm){
+      padding: 4px;
+      font-size: 9px;
+      margin: 2px;
+    }
+  }
+}
+.no__bookmark{
+  text-align: center;
+  position: relative;
+  height: 400px;
+  .no__bookmark--icon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    i{
+      font-size: 12rem;
+      color: rgba($color: #a7a7a7, $alpha: 0.5);
+    }
+  }
+}
+
