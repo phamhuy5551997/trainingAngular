@@ -47,8 +47,8 @@ export class NavBarComponent implements OnInit,DoCheck {
   onConfirm() {
     this.messageService.clear('c');
     let data = this.bookmarkService.DeleteBookmark(this.movieDelete.maPhim);
-    this.movieDelete = [];
-    this.movieDelete = [...data];
+    this.dataBookmark = [];
+    this.dataBookmark = [...data];
     this.messageService.add({severity:'success', summary:'Delete Successfull', detail:`${this.movieDelete.tenPhim}`});
     this.movieDelete='';
   }

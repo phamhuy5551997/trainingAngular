@@ -23,6 +23,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 //module primeNG
 import { PrimeNgModule } from '../../../app/core/shared/prime-ng/prime-ng.module';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 
@@ -43,6 +45,8 @@ import { PrimeNgModule } from '../../../app/core/shared/prime-ng/prime-ng.module
     DetailItemComponent,
     PopUpComponent,
     NavBarComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     CommonModule,

@@ -30,3 +30,25 @@
     padding: 10px 0;
   }
 }
+
+//loading
+.no__loading{
+  width: 70%;
+  height: 100vh;
+  margin: auto;
+  padding: 50px 0;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 20px;
+  @include responsive(xl){
+    width: 85%;
+  }
+  @include responsive(lg){
+    grid-template-columns: repeat(3,1fr);
+  }
+  @include responsive(sm){
+    width: 95%;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 4px;
+  }
+}

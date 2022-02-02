@@ -1,7 +1,7 @@
 <p-toast
   [breakpoints]="{ '560px': { width: '100%', right: '0', left: '0' } }"
 ></p-toast>
-<section id="list__movie">
+<section id="list__movie" *ngIf="listMovie.length > 0;else noLoading">
   <div id="list__pagination">
     <pagination-controls (pageChange)=" page = $event" class="my-pagination" responsive="true"></pagination-controls>
   </div>
@@ -12,5 +12,17 @@
     <pagination-controls (pageChange)=" page = $event" class="my-pagination" responsive="true"></pagination-controls>
   </div>
 </section>
+<ng-template #noLoading>
+  <div class="no__loading">
+    <p-skeleton size="100%"></p-skeleton>
+    <p-skeleton size="100%"></p-skeleton>
+    <p-skeleton size="100%"></p-skeleton>
+    <p-skeleton size="100%"></p-skeleton>
+    <p-skeleton size="100%"></p-skeleton>
+    <p-skeleton size="100%"></p-skeleton>
+    <p-skeleton size="100%"></p-skeleton>
+    <p-skeleton size="100%"></p-skeleton>
+  </div>
+</ng-template>
 
 
