@@ -1,0 +1,17 @@
+@import '../../../../utils/responsive.scss';
+p-table{
+  tr{
+    border: 2px solid rgb(73, 73, 73) !important;
+    th,td{
+      text-align: center;
+      font-weight: bold;
+      @include responsive(sm){
+        text-align: left !important;
+      }
+    }
+    transition: all 0.2s;
+    &:hover{
+      background-color: rgba(#000, $alpha: 0.3) ;
+    }
+  }
+}

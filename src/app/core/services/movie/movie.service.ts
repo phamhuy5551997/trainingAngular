@@ -23,13 +23,18 @@ export class MovieService {
   }
 
   constructor(private http:HttpClient) { }
-
+  //get all movie
   GetAllMoviesHttp():Observable<any>{
     return  this.http.get(`${this.Url}/QuanLyPhim/LayDanhSachPhim?maNhom=GP09`).pipe(
-      // map(data=>{
-      //    console.log(data);
-      // }),
       catchError(this.handleError)
     )
   }
+  //get movie detail
+  GetMovieDetail(id:number):Observable<any>{
+    return this.http.get(`${this.Url}/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+
 }

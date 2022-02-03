@@ -1,17 +1,28 @@
 @import '../../../../utils/responsive.scss';
 #footer{
-  background-color: #000;
+  background-image: url('../../../../../assets/image/carousel/footer.jpg');
+  min-height: 250px;
+  position: relative;
+  @include responsive(md){
+    height: 400px;
+  }
+  @include responsive(sm){
+    height: 600px;
+  }
   .footer__ui{
+    z-index: 30;
+    position: absolute;
     width: 70%;
-    margin: auto;
-    padding: 50px 0;
-    min-height: 250px;
+    left: 15%;
+    top: 50%;
+    transform: translateY(-50%);
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-column-gap: 30px;
     text-align: left;
     @include responsive(xl){
       width: 90%;
+      left: 5%;
     }
     @include responsive(md){
       grid-template-columns: repeat(2,1fr);
@@ -27,7 +38,7 @@
         i{
           color: #f00;
           margin-right: 10px;
-          font-size: 20px;
+          font-size: 18px;
         }
         span{
           font-size: 16px;
@@ -35,5 +46,14 @@
         }
       }
     }
+  }
+  .footer__bg{
+    z-index: 25;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #003, $alpha: 0.7);
   }
 }

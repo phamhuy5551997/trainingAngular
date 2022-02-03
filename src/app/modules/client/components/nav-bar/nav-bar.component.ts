@@ -17,9 +17,11 @@ export class NavBarComponent implements OnInit,DoCheck {
   visibleUser:boolean;
   userLogin:boolean=false;
   movieDelete:any;
-
+  //page
   first = 0;
   rows = 10;
+  //user-online-offline
+  statusUser:string="danger" //success
 
   constructor(
     private bookmarkService:BookmarkService,

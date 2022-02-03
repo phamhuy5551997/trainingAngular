@@ -4,19 +4,28 @@
       type="button"
       pButton
       pRipple
-      icon="pi pi-user"
-      label="Users"
       (click)="visibleUser = true"
-    ></button>
+    >
+    <span>Users</span>
+    <i
+      class="pi pi-user p-ml-3 p-text-secondary"
+      pBadge
+      style="font-size: 1rem; color: #fff"
+      severity={{statusUser}}
+    ></i>
+    </button>
   </div>
   <div>
-    <p-button
-      (click)="showBasicDialog2()"
-      icon="pi pi-bell"
-      label="Movie"
-      badge="{{ numberData }}"
-      badgeClass="p-badge-danger"
-    ></p-button>
+    <p-button (click)="showBasicDialog2()">
+      <span>Bookmark</span>
+      <i
+        class="pi pi-bell p-ml-3 p-text-secondary"
+        pBadge
+        style="font-size: 1rem; color: #fff"
+        severity="danger"
+        value="{{ numberData }}"
+      ></i>
+    </p-button>
   </div>
 </section>
 <!-- side-bar -->
@@ -71,17 +80,17 @@
     >
       <ng-template pTemplate="header">
         <tr>
-          <th style="width: 15%;">ID</th>
-          <th style="width: 15%;">Image</th>
-          <th style="width: 30%;">Name</th>
-          <th style="width: 40%;">Action</th>
+          <th style="width: 15%">ID</th>
+          <th style="width: 15%">Image</th>
+          <th style="width: 30%">Name</th>
+          <th style="width: 40%">Action</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-book>
         <tr class="tr__hover">
           <td>{{ book.maPhim }}</td>
           <td pRipple>
-            <img src="{{ book.hinhAnh }}" alt="..."  />
+            <img src="{{ book.hinhAnh }}" alt="..." />
           </td>
           <td>
             {{ book.tenPhim | subStringPipe: 12 }}
@@ -93,15 +102,14 @@
               type="button"
               label="Detail"
               class="p-button-outlined p-mr-md-2 p-text-center"
-              [routerLink]="'/detail/'+ book.maPhim"
+              [routerLink]="'/detail/' + book.maPhim"
             ></button>
             <button
               pButton
-
               type="button"
               label="Delete"
               class="p-button-outlined p-button-danger p-text-center"
-              (click)="showConfirm(book);displayBasic2 = false"
+              (click)="showConfirm(book); displayBasic2 = false"
             ></button>
           </td>
         </tr>
@@ -130,20 +138,31 @@
 <p-toast></p-toast>
 <p-toast position="center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
   <ng-template let-message pTemplate="message">
-      <div class="p-flex p-flex-column" style="flex: 1">
-          <div class="p-text-center">
-              <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
-              <h4>{{message.summary}}</h4>
-              <p>{{message.detail}}</p>
-          </div>
-          <div class="p-grid p-fluid">
-              <div class="p-col-6">
-                  <button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-danger"></button>
-              </div>
-              <div class="p-col-6">
-                  <button type="button" pButton (click)="onReject()" label="No"></button>
-              </div>
-          </div>
+    <div class="p-flex p-flex-column" style="flex: 1">
+      <div class="p-text-center">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+        <h4>{{ message.summary }}</h4>
+        <p>{{ message.detail }}</p>
       </div>
+      <div class="p-grid p-fluid">
+        <div class="p-col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onConfirm()"
+            label="Yes"
+            class="p-button-danger"
+          ></button>
+        </div>
+        <div class="p-col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onReject()"
+            label="No"
+          ></button>
+        </div>
+      </div>
+    </div>
   </ng-template>
 </p-toast>

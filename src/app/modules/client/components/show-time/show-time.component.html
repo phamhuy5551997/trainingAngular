@@ -1,0 +1,83 @@
+<div id="showTime">
+  <p-table
+    [value]="time"
+    [paginator]="true"
+    [rows]="15"
+    [showCurrentPageReport]="true"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} times"
+    [rowsPerPageOptions]="[10, 25, 50]"
+    [scrollable]="true"
+    scrollHeight="330px"
+    styleClass="p-datatable-gridlines"
+  >
+    <ng-template pTemplate="caption">
+      <div class="p-d-flex">
+        <button
+          type="button"
+          pButton
+          pRipple
+          label="EXCEL"
+          icon="pi pi-file-excel"
+          (click)="exportExcel()"
+          class="p-button-success p-mr-2 p-px-4"
+          pTooltip="XLS"
+          tooltipPosition="bottom"
+        ></button>
+        <button
+          type="button"
+          pButton
+          pRipple
+          label="PDF"
+          icon="pi pi-file-pdf"
+          (click)="exportPdf()"
+          class="p-button-warning p-mr-2 p-px-4"
+          pTooltip="PDF"
+          tooltipPosition="bottom"
+        ></button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="width: 70%">Description</th>
+        <th style="width: 30%">Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-time>
+      <tr>
+        <td style="width: 70%">
+          <p>Name: {{ time.tenPhim }}</p>
+          <p>Time: {{ time.thoiLuong }}' minute</p>
+          <p>Premiere date: {{ time.ngayChieuGioChieu }}</p>
+          <p>Cinema system: {{ time.thongTinRap.tenHeThongRap }}</p>
+          <p>Theater: {{ time.thongTinRap.tenCumRap }}</p>
+          <p>Cinema room: {{ time.thongTinRap.tenRap }}</p>
+          <p>Fare: {{ time.giaVe }}</p>
+        </td>
+        <td style="width: 30%">
+          <button
+            pButton
+            pRipple
+            type="button"
+            label="Booking Now"
+            class="p-button-raised p-button-danger"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<!-- giaVe: 75000
+maLichChieu: 17341
+maPhim: 1337
+maRap: 490
+ngayChieuGioChieu: "2019-01-01T10:10:00"
+tenPhim: "Siêu Thú Cuồng Nộ "
+thoiLuong: 120
+thongTinRap:
+maCumRap: "bhd-star-cineplex-vincom-le-van-viet"
+maHeThongRap: "BHDStar"
+maRap: 490
+tenCumRap: "BHD Star Cineplex - Vincom Lê Văn Việt"
+tenHeThongRap: "BHD Star Cineplex"
+tenRap: "Rạp 10" -->

@@ -25,6 +25,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PrimeNgModule } from '../../../app/core/shared/prime-ng/prime-ng.module';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ShowTimeComponent } from './components/show-time/show-time.component';
+import { BookingComponent } from './pages/booking/booking.component';
+
 
 
 
@@ -47,6 +50,8 @@ import { ContactComponent } from './components/contact/contact.component';
     NavBarComponent,
     AboutComponent,
     ContactComponent,
+    ShowTimeComponent,
+    BookingComponent,
   ],
   imports: [
     CommonModule,

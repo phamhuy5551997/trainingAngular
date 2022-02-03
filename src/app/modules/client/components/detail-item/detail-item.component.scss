@@ -1,0 +1,39 @@
+@import '../../../../utils/responsive.scss';
+#detail__movie{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 50px;
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  //background-image: linear-gradient(to right, rgb(250, 156, 156) , rgb(222, 152, 255));
+  @include responsive(md){
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    min-height: 100vh;
+    padding: 40px 15px;
+  }
+  .btn__back{
+    position: absolute;
+    top:10px;
+    left: 10px;
+  }
+  .detail__1{
+    .detail__img{
+      text-align: center;
+    }
+    .detail__content{
+      font-size: 1.1rem;
+    }
+  }
+  .detail__2{
+    padding-right: 50px;
+    height: 90vh;
+    @include responsive(md){
+      padding: 0;
+    }
+  }
+}
