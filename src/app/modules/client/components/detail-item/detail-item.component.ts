@@ -20,6 +20,7 @@ export class DetailItemComponent implements OnInit,OnDestroy {
     ) { }
 
   ngOnInit(): void {
+    this.movie = {name:'anonymus'};
     let sub1 = this.activatedRoute.params.subscribe((params)=>{
       this.id = params.id
     })

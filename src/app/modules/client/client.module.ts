@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ClientComponent } from './client.component';
@@ -27,6 +27,8 @@ import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ShowTimeComponent } from './components/show-time/show-time.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { ChairComponent } from './components/chair/chair.component';
 
 
 
@@ -52,6 +54,8 @@ import { BookingComponent } from './pages/booking/booking.component';
     ContactComponent,
     ShowTimeComponent,
     BookingComponent,
+    LoadingComponent,
+    ChairComponent,
   ],
   imports: [
     CommonModule,
@@ -59,6 +63,10 @@ import { BookingComponent } from './pages/booking/booking.component';
     ClientRoutingModule,
     PrimeNgModule,
     PipeModule
+  ],
+  schemas:[
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ]
 })
 export class ClientModule { }

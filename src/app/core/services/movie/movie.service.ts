@@ -35,6 +35,12 @@ export class MovieService {
       catchError(this.handleError)
     )
   }
+  //get List chair api
+  GetListChair(id:number){
+    return this.http.get(`${this.Url}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`).pipe(
+      catchError(this.handleError)
+    )
+  }
 
 
 }

@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { BookingComponent } from './pages/booking/booking.component';
 
 const RoutesClient: Routes = [
   {
@@ -20,6 +21,10 @@ const RoutesClient: Routes = [
       {
         path:"detail/:id",
         component:DetailComponent
+      },
+      {
+        path:"booking/:id",
+        component: BookingComponent
       },
       {
         path:"sign-up",

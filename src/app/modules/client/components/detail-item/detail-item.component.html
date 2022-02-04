@@ -1,19 +1,27 @@
-<section id="detail__movie">
-  <div class="btn__back">
-    <button type="button" class="btn btn-danger" routerLink="/">Back Home</button>
-  </div>
-  <div class="detail__1">
-    <div class="detail__img">
-      <img src={{movie.hinhAnh}} alt="..." width="200">
+<section id="detail__movie" *ngIf="movie.name !== 'anonymus';else notMovie">
+  <div class="detail__movie">
+    <div class="btn__back">
+      <button type="button" class="btn btn-danger p-3" routerLink="/">
+        <i class="pi pi-chevron-left p-mr-3"></i>
+        Back Home
+      </button>
     </div>
-    <div class="detail__content">
-      <h5 style="text-align: center;">{{movie.tenPhim}}</h5>
-      <p style="text-align: center;">Code -- {{movie.maPhim}} --</p>
-      <p style="text-align: center;">Rating -- {{movie.danhGia}} -- IMDB</p>
-      <p>Description: {{movie.moTa}}</p>
+    <div class="detail__1">
+      <div class="detail__img">
+        <img src={{movie.hinhAnh}} alt="..." width="200">
+      </div>
+      <div class="detail__content">
+        <h5 style="text-align: center;">{{movie.tenPhim}}</h5>
+        <p style="text-align: center;">Code -- {{movie.maPhim}} --</p>
+        <p style="text-align: center;">Rating -- {{movie.danhGia}} -- IMDB</p>
+        <p>Description: {{movie.moTa}}</p>
+      </div>
     </div>
-  </div>
-  <div class="detail__2">
-    <app-show-time [time]="movie.lichChieu" ></app-show-time>
+    <div class="detail__2">
+      <app-show-time [time]="movie.lichChieu" ></app-show-time>
+    </div>
   </div>
 </section>
+<ng-template #notMovie>
+  <app-loading></app-loading>
+</ng-template>

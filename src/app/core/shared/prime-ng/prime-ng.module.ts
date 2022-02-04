@@ -24,6 +24,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {PanelModule} from 'primeng/panel';
 import {SkeletonModule} from 'primeng/skeleton';
 import {BadgeModule} from 'primeng/badge';
+import {StepsModule} from 'primeng/steps';
 
 @NgModule({
   declarations: [],
@@ -53,6 +54,7 @@ import {BadgeModule} from 'primeng/badge';
     PanelModule,
     SkeletonModule,
     BadgeModule,
+    StepsModule,
   ],
   exports:[
     AccordionModule,
@@ -79,6 +81,7 @@ import {BadgeModule} from 'primeng/badge';
     PanelModule,
     SkeletonModule,
     BadgeModule,
+    StepsModule,
   ]
 })
 export class PrimeNgModule { }

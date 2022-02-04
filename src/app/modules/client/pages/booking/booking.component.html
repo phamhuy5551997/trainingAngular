@@ -1,1 +1,36 @@
-<p>booking works!</p>
+<section id="booking" *ngIf="dataChair !== '';else noListChair">
+  <div class="btn__back">
+    <button pRipple type="button" class="btn btn-danger" (click)="onGoback()"> <- Go Back</button>
+  </div>
+  <div class="screen__booking">
+    <p>Booking sticket</p>
+  </div>
+  <div class="list__chair">
+    <app-chair [chair]='item' (isChair)="isChairBook($event)" *ngFor="let item of listChair"></app-chair>
+  </div>
+  <div class="descript__chair">
+    <div class="descript__title">
+      <p>Total Seat:</p>
+      <p>{{totalChair}}</p>
+    </div>
+    <div class="descript__title">
+      <p class="id1">Booked:</p>
+      <p>{{Booked}}</p>
+    </div>
+    <div class="descript__title">
+      <p class="id2">UnBooked:</p>
+      <p>{{unBooked}}</p>
+    </div>
+    <div class="descript__title">
+      <p class="id3">Choosing:</p>
+      <p>{{Choosing}}</p>
+    </div>
+  </div>
+  <div class="text-center py-5">
+    <p-button label="Booking Now" icon="pi pi-ticket" iconPos="left" (click)="onBooking()" ></p-button>
+  </div>
+</section>
+<ng-template #noListChair>
+  <app-loading></app-loading>
+</ng-template>
+

@@ -1,0 +1,43 @@
+#loading{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  .loading__icon1, .loading__icon2, .loading__image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .loading__icon1{
+    z-index: 20;
+    i{
+      font-size: 6rem;
+      color: #f03;
+    }
+  }
+  .loading__icon2{
+    z-index: 20;
+    i{
+      font-size: 12rem;
+      color: #673AB7;
+    }
+  }
+  .loading__image{
+    z-index: 20;
+    img{
+      animation: img_rotate 3s linear 0s infinite;
+    }
+  }
+}
+
+@keyframes img_rotate {
+  0%{
+    transform: rotate(0) scale(0.5);
+  }
+  50%{
+    transform: scale(1) rotate(-180deg);
+  }
+  100%{
+    transform: rotate(-360deg) scale(0.5);
+  }
+}

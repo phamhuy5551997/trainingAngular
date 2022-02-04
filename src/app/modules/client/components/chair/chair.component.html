@@ -1,0 +1,10 @@
+<ng-container *ngIf="chair.daDat === false; else isNotChair">
+  <button pRipple type="button" class="btn" [ngClass]="{'btn-warning':chair.dangChon,'btn__color':!chair.dangChon}" (click)="isBooking()">
+    {{ chair.tenGhe }}
+  </button>
+</ng-container>
+<ng-template #isNotChair>
+  <button pRipple type="button" disabled class="btn btn-danger">
+    {{ chair.tenGhe }}
+  </button>
+</ng-template>
