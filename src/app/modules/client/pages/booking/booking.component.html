@@ -1,6 +1,6 @@
 <section id="booking" *ngIf="dataChair !== '';else noListChair">
   <div class="btn__back">
-    <button pRipple type="button" class="btn btn-danger" (click)="onGoback()"> <- Go Back</button>
+    <button pRipple type="button" class="btn btn-danger" (click)="onGoback()"><i class="pi pi-arrow-left" style="font-size: 1rem"></i> Go Back</button>
   </div>
   <div class="screen__booking">
     <p>Booking sticket</p>
@@ -27,10 +27,30 @@
     </div>
   </div>
   <div class="text-center py-5">
-    <p-button label="Booking Now" icon="pi pi-ticket" iconPos="left" (click)="onBooking()" ></p-button>
+    <button pButton type="button" label="Booking Now" icon="pi pi-ticket" class="p-button-lg" (click)="onBooking()"></button>
   </div>
 </section>
 <ng-template #noListChair>
   <app-loading></app-loading>
 </ng-template>
+<p-toast position="center" key="booking" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div class="p-flex p-flex-column" style="flex: 1">
+          <div class="p-text-center">
+              <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+              <h4>{{message.summary}}</h4>
+              <p>{{message.detail}}</p>
+          </div>
+          <div class="p-grid p-fluid">
+              <div class="p-col-6">
+                  <button type="button" pButton (click)="onConfirm()" label="Yes" class="p-button-success"></button>
+              </div>
+              <div class="p-col-6">
+                  <button type="button" pButton (click)="onReject()" label="No" class="p-button-secondary"></button>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-toast>
+<p-toast></p-toast>
 

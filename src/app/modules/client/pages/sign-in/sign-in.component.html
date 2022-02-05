@@ -1,1 +1,87 @@
-<p>sign-in works!</p>
+<section id="sign-in">
+  <div class="home__back">
+    <button pRipple type="button" class="btn btn-danger" routerLink="/"><i class="pi pi-arrow-left"></i> Home</button>
+  </div>
+  <form [formGroup]="FormSignIn" (ngSubmit)="onSubmit()" id="form__signIn">
+    <h3>Form Sign-In</h3>
+    <div class="icon__overlay">
+      <i class="pi pi-pencil pi-spin"></i>
+    </div>
+    <!-- --- -->
+    <div class="p-d-flex input__form">
+      <span class="p-float-label">
+        <input id="full-name" type="text" formControlName="fullName" pInputText />
+        <label for="full-name">Full Name</label>
+      </span>
+      <p-message severity="error" *ngIf="fullName?.touched && fullName?.invalid" class="p-ml-3"></p-message>
+      <p-message severity="success" *ngIf="fullName?.touched && fullName?.valid" class="p-ml-3"></p-message>
+    </div>
+    <div class="alert alert-danger" *ngIf="fullName?.touched && fullName?.invalid">
+      <div *ngFor="let item of FormMessage.fullNameMgs">
+        <small class="p-error" *ngIf="fullName!.hasError(item.type)">{{item.mgs}}</small>
+      </div>
+    </div>
+    <!-- --- -->
+    <div class="p-d-flex input__form">
+      <span class="p-float-label">
+        <input id="user-name" type="text" formControlName="userName" pInputText />
+        <label for="user-name">User Name</label>
+      </span>
+      <p-message severity="error" *ngIf="userName?.touched && userName?.invalid" class="p-ml-3"></p-message>
+      <p-message severity="success" *ngIf="userName?.touched && userName?.valid" class="p-ml-3"></p-message>
+    </div>
+    <div class="alert alert-danger" *ngIf="userName?.touched && userName?.invalid">
+      <div *ngFor="let item of FormMessage.userNameMgs">
+        <small class="p-error" *ngIf="userName!.hasError(item.type)">{{item.mgs}}</small>
+      </div>
+    </div>
+    <!-- --- -->
+    <div class="p-d-flex input__form">
+      <span class="p-float-label">
+        <input id="password" type="password" formControlName="password" pInputText />
+        <label for="password">Password</label>
+      </span>
+      <p-message severity="error" *ngIf="password?.touched && password?.invalid" class="p-ml-3"></p-message>
+      <p-message severity="success" *ngIf="password?.touched && password?.valid" class="p-ml-3"></p-message>
+    </div>
+    <div class="alert alert-danger" *ngIf="password?.touched && password?.invalid">
+      <div *ngFor="let item of FormMessage.passwordMgs">
+        <small class="p-error" *ngIf="password!.hasError(item.type)">{{item.mgs}}</small>
+      </div>
+    </div>
+    <!-- --- -->
+    <div class="p-d-flex input__form">
+      <span class="p-float-label">
+        <input id="email" type="text" formControlName="email" pInputText />
+        <label for="email">Email</label>
+      </span>
+      <p-message severity="error" *ngIf="email?.touched && email?.invalid" class="p-ml-3"></p-message>
+      <p-message severity="success" *ngIf="email?.touched && email?.valid" class="p-ml-3"></p-message>
+    </div>
+    <div class="alert alert-danger" *ngIf="email?.touched && email?.invalid">
+      <div *ngFor="let item of FormMessage.emailMgs">
+        <small class="p-error" *ngIf="email!.hasError(item.type)">{{item.mgs}}</small>
+      </div>
+    </div>
+    <!-- --- -->
+    <div class="p-d-flex input__form">
+      <span class="p-float-label">
+        <input id="number-phone" type="number" formControlName="numberPhone" pInputText />
+        <label for="number-phone">Number Phone</label>
+      </span>
+      <p-message severity="error" *ngIf="numberPhone?.touched && numberPhone?.invalid" class="p-ml-3"></p-message>
+      <p-message severity="success" *ngIf="numberPhone?.touched && numberPhone?.valid" class="p-ml-3"></p-message>
+    </div>
+    <div class="alert alert-danger" *ngIf="numberPhone?.touched && numberPhone?.invalid">
+      <div *ngFor="let item of FormMessage.numberPhoneMgs">
+        <small class="p-error" *ngIf="numberPhone!.hasError(item.type)">{{item.mgs}}</small>
+      </div>
+    </div>
+    <!-- --- -->
+    <div class="btn__submit">
+      <button pRipple type="submit" class="btn btn-danger" [disabled]="FormSignIn.invalid">Sign-In</button>
+      <span class="p-ml-5" routerLink="/sign-up">Sign-Up ?</span>
+    </div>
+    <!-- --- -->
+  </form>
+</section>

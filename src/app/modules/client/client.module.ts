@@ -1,10 +1,12 @@
 import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ClientComponent } from './client.component';
 //module
 import { ClientRoutingModule } from './client-routing.module';
 import { PipeModule } from 'src/app/core/pipes/pipe.module';
+//module primeNG
+import { PrimeNgModule } from '../../../app/core/shared/prime-ng/prime-ng.module';
 //module
 import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
@@ -19,16 +21,17 @@ import { ItemComponent } from './components/item/item.component';
 import { DetailItemComponent } from './components/detail-item/detail-item.component';
 import { PopUpComponent } from './components/pop-up/pop-up.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-
-
-//module primeNG
-import { PrimeNgModule } from '../../../app/core/shared/prime-ng/prime-ng.module';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ShowTimeComponent } from './components/show-time/show-time.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { ChairComponent } from './components/chair/chair.component';
+import { MessageComponent } from './components/message/message.component';
+
+
+
+
 
 
 
@@ -56,10 +59,12 @@ import { ChairComponent } from './components/chair/chair.component';
     BookingComponent,
     LoadingComponent,
     ChairComponent,
+    MessageComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ClientRoutingModule,
     PrimeNgModule,
     PipeModule

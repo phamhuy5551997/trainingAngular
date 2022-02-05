@@ -1,4 +1,4 @@
-<div class="headerClient" id="headerClient" class="p-d-flex p-ai-center ">
+<div class="headerClient" id="headerClient" class="p-d-flex p-ai-center">
   <div class="header__left">
     <div class="headerMenu__image">
       <a href="#">
@@ -20,85 +20,94 @@
       </p>
     </div>
   </div>
-  <div style="display: flex; align-items: center;" class="header__right">
+  <div style="display: flex; align-items: center" class="header__right">
     <div class="headerMenu__mobile1">
-      <span class="p-float-label p-mr-2" >
+      <span class="p-float-label p-mr-2">
         <input id="float-input" type="text" pInputText />
         <label for="float-input">Search</label>
       </span>
       <span>
         <p-button
-        type="button"
-        icon="pi pi-search"
-        class="p-button-rounded"
-      ></p-button>
+          type="button"
+          icon="pi pi-search"
+          class="p-button-rounded"
+        ></p-button>
       </span>
     </div>
     <span>
       <p-button
-      type="button"
-      icon="pi pi-sign-out"
-      class="p-ml-5"
-      label="Sign-Out"
-    ></p-button>
+        type="button"
+        icon="pi pi-sign-in"
+        class="p-ml-4"
+        label="Sign-Up"
+        routerLink="/sign-up"
+      ></p-button>
     </span>
     <span>
-      <p-button
-      type="button"
-      icon="pi pi-sign-in"
-      class="p-ml-5"
-      label="Sign-In"
-    ></p-button>
+      <button
+        pButton
+        pRipple
+        type="button"
+        label="Sign-In"
+        icon="pi pi-pencil"
+        class="p-button-outlined p-ml-2"
+        style="color: #fff;"
+        routerLink="/sign-in"
+      ></button>
     </span>
     <span class="headerMenu__mobile2">
       <p-button
-      type="button"
-      (click)="visibleSidebar1 = true"
-      icon="pi pi-align-justify"
-      class="p-ml-3"
-    ></p-button>
+        type="button"
+        (click)="visibleSidebar1 = true"
+        icon="pi pi-align-justify"
+        class="p-ml-3"
+      ></p-button>
     </span>
   </div>
 </div>
 <!-- mobile -->
 <p-sidebar
-[(visible)]="visibleSidebar1"
-[baseZIndex]="10000"
-[style]="{ width: '21em' }"
-[transitionOptions]="'400ms'"
+  [(visible)]="visibleSidebar1"
+  [baseZIndex]="10000"
+  [style]="{ width: '21em' }"
+  [transitionOptions]="'400ms'"
 >
-<h3 class="p-text-center">Menu</h3>
-<hr>
-<div class="p-d-flex p-ai-center">
-  <span class="p-float-label" style="height: 40px; margin-right: 10px;" >
-    <input id="float-input" type="text" pInputText style="height: 40px;" />
-    <label for="float-input">Search</label>
-  </span>
-  <span>
-    <button
-      pButton
-      pRipple
-      type="button"
-      icon="pi pi-search"
-      class="p-button-rounded "
-      (click)="visibleSidebar1 = false"
-    ></button>
-  </span>
-</div>
-<hr>
-<div class="header__sidebar">
-  <p (click)="visibleSidebar1 = false"><i class="pi pi-home"></i> Home</p>
-  <p (click)="visibleSidebar1 = false"><i class="pi pi-align-left"></i> Movie</p>
-  <p (click)="visibleSidebar1 = false"><i class="pi pi-info-circle"></i> About</p>
-  <p (click)="visibleSidebar1 = false"><i class="pi pi-phone"></i> Contact</p>
-</div>
-<hr>
-<p-button
-  type="button"
-  (click)="visibleSidebar1 = false"
-  label="Cancel"
-  styleClass="p-button-danger"
-  class="p-text-center"
-></p-button>
+  <h3 class="p-text-center">Menu</h3>
+  <hr />
+  <div class="p-d-flex p-ai-center">
+    <span class="p-float-label" style="height: 40px; margin-right: 10px">
+      <input id="float-input" type="text" pInputText style="height: 40px" />
+      <label for="float-input">Search</label>
+    </span>
+    <span>
+      <button
+        pButton
+        pRipple
+        type="button"
+        icon="pi pi-search"
+        class="p-button-rounded"
+        (click)="visibleSidebar1 = false"
+      ></button>
+    </span>
+  </div>
+  <hr />
+  <div class="header__sidebar">
+    <p (click)="visibleSidebar1 = false"><i class="pi pi-home"></i> Home</p>
+    <p (click)="visibleSidebar1 = false">
+      <i class="pi pi-align-left"></i> Movie
+    </p>
+    <p (click)="visibleSidebar1 = false">
+      <i class="pi pi-info-circle"></i> About
+    </p>
+    <p (click)="visibleSidebar1 = false"><i class="pi pi-phone"></i> Contact</p>
+  </div>
+  <hr />
+  <p-button
+    type="button"
+    (click)="visibleSidebar1 = false"
+    label="Cancel"
+    styleClass="p-button-danger"
+    class="p-text-center"
+  ></p-button>
 </p-sidebar>
 <!-- mobile -->

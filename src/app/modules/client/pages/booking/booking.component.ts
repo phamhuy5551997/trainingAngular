@@ -4,11 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import {MenuItem} from 'primeng/api';
 import { Location } from '@angular/common';
+import {MessageService} from 'primeng/api';
+import { MessageToastService } from 'src/app/core/services/message/message.service';
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
-  styleUrls: ['./booking.component.scss']
+  styleUrls: ['./booking.component.scss'],
+  providers: [MessageService]
 })
 export class BookingComponent implements OnInit,DoCheck,OnDestroy {
 
@@ -24,7 +27,9 @@ export class BookingComponent implements OnInit,DoCheck,OnDestroy {
   constructor(
     private movieService:MovieService,
     private activatedRoute:ActivatedRoute,
-    private location:Location
+    private location:Location,
+    private messageService: MessageService,
+    private messageToastService:MessageToastService,
   ) { }
 
   ngOnInit(): void {
@@ -71,7 +76,20 @@ export class BookingComponent implements OnInit,DoCheck,OnDestroy {
   //booking now
   onBooking(){
     let choose = this.listChair?.filter(item=> item.dangChon === true)
-    console.log(choose);
+    if(choose.length > 0){
+      this.messageService.clear();
+      this.messageService.add({key: 'booking', sticky: true, severity:'warn', summary:'Are you booking seat ?', detail:'Confirm to proceed'});
+    }else{
+      this.messageService.add({severity:'error', summary: 'Error', detail: 'Please choose at least 1 seat !',life:6000});
+    }
+  }
+  onConfirm() {
+      this.messageService.clear('booking');
+      let msg = {severity:'info', summary: 'Info', detail: 'test xem nao hihi'}
+      this.messageToastService.sendMessage(msg)
+  }
+  onReject() {
+      this.messageService.clear('booking');
   }
   //go back
   onGoback(){
