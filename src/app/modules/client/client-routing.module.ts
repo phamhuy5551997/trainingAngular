@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { BookingComponent } from './pages/booking/booking.component';
+//guard
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
 const RoutesClient: Routes = [
   {
@@ -24,7 +26,8 @@ const RoutesClient: Routes = [
       },
       {
         path:"booking/:id",
-        component: BookingComponent
+        component: BookingComponent,
+        canActivate: [AuthGuard]
       },
       {
         path:"sign-up",

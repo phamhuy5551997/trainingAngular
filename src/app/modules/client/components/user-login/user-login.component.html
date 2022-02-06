@@ -1,0 +1,22 @@
+<section id="user__login" *ngIf="user.taiKhoan === 'anonymus';else userLoginUP">
+  <div class="user__login" >
+    <div class="user__img">
+      <i class="pi pi-user"></i>
+    </div>
+    <h4>Anonymus</h4>
+  </div>
+</section>
+<ng-template #userLoginUP>
+  <section id="user__login">
+    <div class="user__login">
+      <div class="user__img">
+        <img src="../../../../../assets/image/carousel/avatar.jpg" alt="...">
+      </div>
+      <h4>{{user?.hoTen}}</h4>
+      <button pButton pRipple label="Profile" icon="pi pi-user-plus" class="p-my-3"></button>
+      <br>
+      <button pButton pRipple label="-Admin" icon="pi pi-star"></button>
+    </div>
+  </section>
+</ng-template>
+

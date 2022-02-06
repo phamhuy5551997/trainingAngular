@@ -29,6 +29,14 @@ export class NavBarComponent implements OnInit,DoCheck {
   ){}
   ngOnInit() {
     this.handleGetBookmark();
+    if(localStorage.getItem('userLogin')){
+      let user = JSON.parse(localStorage.getItem('userLogin'))
+      if(user.taiKhoan === 'anonymus'){
+        this.statusUser="danger"
+      }else{
+        this.statusUser="success"
+      }
+    }
   }
   ngDoCheck(): void {
     this.handleGetBookmark();

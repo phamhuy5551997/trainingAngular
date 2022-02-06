@@ -30,7 +30,7 @@ export class ShowTimeComponent implements OnInit,OnChanges {
     this.exportColumns = this.cols.map(col => ({title: col.header, dataKey: col.field}));
   }
   ngOnChanges(): void {
-    console.log(this.time);
+    //console.log(this.time);
     //this.dataPDF=[...this.time]
     this.time?.forEach((el) => {
       const date1 = new Date(el.ngayChieuGioChieu);

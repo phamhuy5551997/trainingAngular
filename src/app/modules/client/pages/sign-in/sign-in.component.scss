@@ -1,81 +1,70 @@
 @import '../../../../utils/responsive.scss';
 #sign-in{
-  background-image: url('../../../../../assets/image/carousel/c3.jpg');
+  background-image: url('../../../../../assets/image/carousel/login.jpg');
   background-attachment: fixed;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
   position: relative;
-  .home__back{
+  .btn__home{
     position: absolute;
-    top: 10px;
+    top:10px;
     left: 10px;
-    z-index: 100;
-    .btn{
-      padding: 7px 25px;
-      font-weight: bold;
-      font-size: 14px;
-    }
   }
   #form__signIn{
-    z-index: 90;
-    width: 50%;
-    margin-left: auto;
-    text-align: center;
-    min-height: 100vh;
-    padding: 40px;
-    background-color: rgba($color: #000000, $alpha: 0.8);
-    position: relative;
-    @include responsive(xl){
-      width: 60%;
-      padding: 80px;
+    input.ng-invalid.ng-touched{
+      border-right: 3px solid #f03;
     }
-    @include responsive(md){
+    input.ng-valid.ng-touched{
+      border-right: 3px solid #0f5;
+    }
+    width: 50%;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    text-align: center;
+    padding: 60px 15%;
+    @include responsive(xl){
+      padding-top: 150px;
       width: 70%;
-      padding: 150px;
     }
     @include responsive(sm){
+      padding-top: 50px;
       width: 100%;
-      padding: 50px 0 ;
     }
-    .icon__overlay{
+    .signIn__overlay{
       position: absolute;
-      top:50%;
-      left: -30px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 50%;
-      transform: translateY(-50%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      @include responsive(xl){
+        left: 70%;
+        transform: translate(-50%,-70%);
+      }
+      @include responsive(sm){
+        display: none;
+      }
       i{
-        font-size: 20px;
+        padding: 20px;
+        font-size: 16px;
+        background-color: #fff;
+        color: $color-primary !important;
+        border-radius: 50%;
       }
     }
     h3{
+      margin-bottom: 50px;
       color: #fff;
-      margin-bottom: 40px;
     }
-    input.ng-invalid.ng-touched{
-      border-left: 3px solid #f03;
+    .signIn__alert{
+      height: 40px;
     }
-    input.ng-valid.ng-touched{
-      border-left: 3px solid #0f5;
-    }
-    input{
-      height: 38px;
-      font-size: 12px;
-    }
-    .input__form{
-      margin-bottom: 25px;
-      justify-content: center;
-    }
-    .btn__submit{
-      .btn{
-        outline: none;
-        padding: 7px 25px;
-        font-size: 14px;
-        font-weight: bold;
-        background-color: $color-primary;
-        border-color: $color-primary;
-        color: #fff;
+    .signIn__btn{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      button{
+        padding: 8px 25px;
+        color: #fff !important;
+        border: 1px solid #fff;
       }
       span{
         color: #fff;
@@ -85,25 +74,5 @@
         }
       }
     }
-    .alert.alert-danger{
-      padding: 3px 5px;
-      width: 36%;
-      text-align: left;
-      margin: -20px auto 20px;
-      @include responsive(xl){
-        width: 47%;
-      }
-      @include responsive(md){
-        width: 89%;
-      }
-      @include responsive(sm){
-        width: 52%;
-      }
-      @include responsive(xs){
-        width: 58%;
-      }
-    }
   }
-
-
 }

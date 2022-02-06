@@ -28,14 +28,8 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { ChairComponent } from './components/chair/chair.component';
 import { MessageComponent } from './components/message/message.component';
-
-
-
-
-
-
-
-
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +54,7 @@ import { MessageComponent } from './components/message/message.component';
     LoadingComponent,
     ChairComponent,
     MessageComponent,
+    UserLoginComponent,
   ],
   imports: [
     CommonModule,
@@ -68,6 +63,9 @@ import { MessageComponent } from './components/message/message.component';
     ClientRoutingModule,
     PrimeNgModule,
     PipeModule
+  ],
+  providers:[
+    AuthGuard
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,

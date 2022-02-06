@@ -39,7 +39,7 @@ export class DetailItemComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
       this.subscrip.forEach((sub,i)=>{
         sub.unsubscribe()
-        console.log('destroy sub' + i );
+        //console.log('destroy sub' + i );
       })
   }
 }

@@ -1,0 +1,109 @@
+@import '../../../../utils/responsive.scss';
+#sign-up{
+  background-image: url('../../../../../assets/image/carousel/c3.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  .btn__home{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    // .btn{
+    //   padding: 7px 25px;
+    //   font-weight: bold;
+    //   font-size: 14px;
+    // }
+  }
+  #form__signUp{
+    z-index: 90;
+    width: 50%;
+    margin-left: auto;
+    text-align: center;
+    min-height: 100vh;
+    padding: 40px;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    position: relative;
+    @include responsive(xl){
+      width: 60%;
+      padding: 80px;
+    }
+    @include responsive(md){
+      width: 70%;
+      padding: 150px;
+    }
+    @include responsive(sm){
+      width: 100%;
+      padding: 50px 0 ;
+    }
+    .icon__overlay{
+      position: absolute;
+      top:50%;
+      left: -30px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      i{
+        font-size: 20px;
+      }
+    }
+    h3{
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    input.ng-invalid.ng-touched{
+      border-left: 3px solid #f03;
+    }
+    input.ng-valid.ng-touched{
+      border-left: 3px solid #0f5;
+    }
+    input{
+      height: 38px;
+      font-size: 12px;
+    }
+    .input__form{
+      margin-bottom: 25px;
+      justify-content: center;
+    }
+    .btn__submit{
+      .btn{
+        outline: none;
+        padding: 7px 25px;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: #fff;
+      }
+      span{
+        color: #fff;
+        font-size: 14px;
+        &:hover{
+          color: #f03;
+        }
+      }
+    }
+    .alert.alert-danger{
+      padding: 3px 5px;
+      width: 36%;
+      text-align: left;
+      margin: -20px auto 20px;
+      @include responsive(xl){
+        width: 47%;
+      }
+      @include responsive(md){
+        width: 89%;
+      }
+      @include responsive(sm){
+        width: 52%;
+      }
+      @include responsive(xs){
+        width: 58%;
+      }
+    }
+  }
+
+
+}

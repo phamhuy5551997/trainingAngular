@@ -1,5 +1,6 @@
 @import '../../../../utils/responsive.scss';
 p-table{
+  border-radius: 20px !important;
   tr{
     border: 2px solid rgb(73, 73, 73) !important;
     th,td{
@@ -10,8 +11,13 @@ p-table{
       }
     }
     transition: all 0.2s;
-    &:hover{
-      background-color: rgba(#000, $alpha: 0.3) ;
-    }
+    // &:hover{
+    //   background-color: rgba(#f00, $alpha: 0.1) ;
+    // }
   }
+}
+.showtime__table{
+  margin-top: 20px;
+  border-radius: 30px;
+  overflow: hidden;
 }

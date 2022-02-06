@@ -8,8 +8,10 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100vh;
+    min-height: 100vh;
     //background-image: linear-gradient(to right, rgb(250, 156, 156) , rgb(222, 152, 255));
+    background-color: #000;
+    color: #fff;
     @include responsive(md){
       display: flex;
       flex-direction: column;
@@ -20,7 +22,7 @@
     @include responsive(sm){
       padding: 60px 15px;
     }
-    .btn__back{
+    .btn__home{
       position: absolute;
       top:10px;
       left: 10px;

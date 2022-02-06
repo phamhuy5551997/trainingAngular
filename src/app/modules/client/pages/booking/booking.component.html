@@ -1,6 +1,7 @@
 <section id="booking" *ngIf="dataChair !== '';else noListChair">
-  <div class="btn__back">
-    <button pRipple type="button" class="btn btn-danger" (click)="onGoback()"><i class="pi pi-arrow-left" style="font-size: 1rem"></i> Go Back</button>
+  <div class="btn__home">
+    <p-button label="Back" icon="pi pi-arrow-left" (click)="onGoback()" style="margin-right: 10px;"></p-button>
+    <p-button label="Home" icon="pi pi-arrow-left" routerLink="/"></p-button>
   </div>
   <div class="screen__booking">
     <p>Booking sticket</p>
