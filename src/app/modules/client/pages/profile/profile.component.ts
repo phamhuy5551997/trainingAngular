@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit {
       this.authService.ProfileUserAPI(data).subscribe(
         res=>{
           this.userProfile = {...res}
-          this.ticket = [...res?.thongTinDatVe]
+          this.ticket = [...res?.thongTinDatVe.reverse()]
           //console.log(this.ticket);
         },
         Error=>{

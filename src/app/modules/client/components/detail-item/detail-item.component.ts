@@ -2,6 +2,7 @@ import { MovieService } from './../../../../core/services/movie/movie.service';
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detail-item',
@@ -17,6 +18,7 @@ export class DetailItemComponent implements OnInit,OnDestroy {
   constructor(
     private movieService:MovieService,
     private activatedRoute:ActivatedRoute,
+    private router:Router
     ) { }
 
   ngOnInit(): void {
@@ -29,11 +31,16 @@ export class DetailItemComponent implements OnInit,OnDestroy {
   }
 
   getMovieDetail(){
-    this.movieService.GetMovieDetail(this.id).subscribe(data=>{
-      //console.log(data);
-      this.movie={...data}
-      //console.log(this.movie);
-    })
+    this.movieService.GetMovieDetail(this.id).subscribe(
+      data=>{
+        this.movie={...data}
+      },
+      Error=>{
+        setTimeout(() => {
+          this.router.navigateByUrl('/notfound404')
+        }, 4000);
+      }
+    )
   }
 
   ngOnDestroy(): void {

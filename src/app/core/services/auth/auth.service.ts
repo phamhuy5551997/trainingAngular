@@ -8,8 +8,37 @@ import { catchError, retry,tap,map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private Url = environment.URL;
   constructor(private http:HttpClient) { }
+  private Url = environment.URL;
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      console.error('An error occurred:', error.error);
+      //return 'error status === 0';
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+      return error.error
+    }
+    return throwError(
+      'Something bad happened; please try again later.');
+    //return 'Something bad happened; please try again later.'
+  }
+  // get token user
+  GetTokenUser(){
+    let user:any='';
+    if(localStorage.getItem('userLogin')){
+      user = JSON.parse(localStorage.getItem('userLogin'))
+    }
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'application/json',
+         Authorization: 'my-auth-token'
+      })
+    };
+    httpOptions.headers = httpOptions.headers.set('Authorization', `Bearer ${user.accessToken}`);
+    return httpOptions;
+  }
   // sign-up user
   SignInUserAPI(data:any):Observable<any>{
    return this.http.post(`${this.Url}/QuanLyNguoiDung/DangKy`,data).pipe(
@@ -26,18 +55,17 @@ export class AuthService {
   }
   // update profile user
   UpdateProfileAPI(data:any):Observable<any>{
-    let user:any='';
-    if(localStorage.getItem('userLogin')){
-      user = JSON.parse(localStorage.getItem('userLogin'))
-    }
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: 'my-auth-token'
-      })
-    };
-    httpOptions.headers = httpOptions.headers.set('Authorization', `Bearer ${user.accessToken}`);
-    return this.http.put(`${this.Url}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,data,httpOptions)
+    const token = this.GetTokenUser();
+    return this.http.put(`${this.Url}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,data,token).pipe(
+      //catchError(this.handleError)
+    )
+  }
+  //booking ticket movie
+  BookingTicket(data:any):Observable<any>{
+    const token = this.GetTokenUser();
+    return this.http.post(`${this.Url}/QuanLyDatVe/DatVe`,data,token).pipe(
+      //catchError(this.handleError)
+    )
   }
 
 }

@@ -1,4 +1,7 @@
 <section id="profile__user">
+  <div class="p-p-3">
+    <p-button label="Home" icon="pi pi-arrow-left" routerLink="/"></p-button>
+  </div>
   <div class="profile__user">
     <div class="profile__ticket">
       <div class="card" *ngIf="ticket.length > 0; else noTicket">
@@ -87,7 +90,7 @@
 </section>
 <ng-template #noTicket>
   <div class="no__ticket p-text-center">
-    <h3>Loading List Ticket....</h3>
+    <h3>No booking information yet</h3>
     <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
   </div>
 </ng-template>

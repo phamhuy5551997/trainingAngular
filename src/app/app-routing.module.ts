@@ -10,6 +10,11 @@ import { AdminModule } from 'src/app/modules/admin/admin.module';
 const routes: Routes = [
   {
     path:"",
+    redirectTo:'/',
+    pathMatch: 'full'
+  },
+  {
+    path:"",
     loadChildren:()=> ClientModule
   },
   {

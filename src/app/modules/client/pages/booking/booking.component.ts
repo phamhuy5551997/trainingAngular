@@ -1,11 +1,10 @@
 import { MovieService } from './../../../../core/services/movie/movie.service';
 import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import {MenuItem} from 'primeng/api';
 import { Location } from '@angular/common';
 import {MessageService} from 'primeng/api';
-import { MessageToastService } from 'src/app/core/services/message/message.service';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-booking',
@@ -16,7 +15,7 @@ import { MessageToastService } from 'src/app/core/services/message/message.servi
 export class BookingComponent implements OnInit,DoCheck,OnDestroy {
 
   private subscrip:Subscription[]=[];
-  private id:number=0;
+  public id:number=0;
   public dataChair:any="";
   public listChair:any="";
   public totalChair:number=160;
@@ -29,7 +28,8 @@ export class BookingComponent implements OnInit,DoCheck,OnDestroy {
     private activatedRoute:ActivatedRoute,
     private location:Location,
     private messageService: MessageService,
-    private messageToastService:MessageToastService,
+    private authService:AuthService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -83,10 +83,42 @@ export class BookingComponent implements OnInit,DoCheck,OnDestroy {
       this.messageService.add({severity:'error', summary: 'Error', detail: 'Please choose at least 1 seat !',life:6000});
     }
   }
+  setUpdata(){
+    let choose = this.listChair?.filter(item=> item.dangChon === true)
+    let newSeats =[];
+    let user:any = {taiKhoan:'anonymus'}
+    if(localStorage.getItem('userLogin')){
+      user = JSON.parse(localStorage.getItem('userLogin'));
+    }
+    choose.forEach(el => {
+      let Seat = {
+        "maGhe": el.maGhe,
+        "giaVe": el.giaVe
+      }
+      newSeats.push(Seat);
+    });
+    let data = {
+      "maLichChieu": this.id,
+      "danhSachVe": newSeats,
+      "taiKhoanNguoiDung": user.taiKhoan
+    }
+    return data;
+  }
   onConfirm() {
       this.messageService.clear('booking');
-      let msg = {severity:'info', summary: 'Info', detail: 'test xem nao hihi'}
-      this.messageToastService.sendMessage(msg)
+      let data = this.setUpdata()
+      //console.log(data);
+      this.authService.BookingTicket(data).subscribe(
+        data=>{
+        },Error=>{
+          console.log(Error.error.text);
+          this.messageService.add({severity:'success', summary: 'Success', detail: 'Booking Ticket successful !',life:6000});
+          this.messageService.add({severity:'info', summary: 'Info', detail: 'System redirect to profile after 5s !',life:6000});
+          setTimeout(() => {
+            this.router.navigateByUrl('/profile')
+          }, 5000);
+        }
+      )
   }
   onReject() {
       this.messageService.clear('booking');
