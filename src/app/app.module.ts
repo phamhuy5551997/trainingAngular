@@ -9,10 +9,11 @@ import { PrimeNgModule } from './core/shared/prime-ng/prime-ng.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    Com404Component,
+    Com404Component
   ],
   imports: [
     BrowserModule,

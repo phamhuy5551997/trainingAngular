@@ -1,1 +1,112 @@
-<p>profile works!</p>
+<section id="profile__user">
+  <div class="profile__user">
+    <div class="profile__ticket">
+      <div class="card" *ngIf="ticket.length > 0; else noTicket">
+        <h4 style="color: #000; text-align: center">list ticket movie</h4>
+        <div class="p-mb-3">
+          <p-button
+            type="button"
+            icon="pi pi-chevron-left"
+            (click)="prev()"
+            [disabled]="isFirstPage()"
+            styleClass="p-button-text"
+          ></p-button>
+          <p-button
+            type="button"
+            icon="pi pi-refresh"
+            (click)="reset()"
+            styleClass="p-button-text"
+          ></p-button>
+          <p-button
+            type="button"
+            icon="pi pi-chevron-right"
+            (click)="next()"
+            [disabled]="isLastPage()"
+            styleClass="p-button-text"
+          ></p-button>
+        </div>
+        <p-table
+          [value]="ticket"
+          [paginator]="true"
+          [rows]="rows"
+          [showCurrentPageReport]="true"
+          [(first)]="first"
+          [scrollable]="true"
+          scrollHeight="50vh"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} ticket"
+          [rowsPerPageOptions]="[10, 25, 50]"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Description</th>
+              <th>time ticket</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-ticket>
+            <tr>
+              <td>
+                <p>System: {{ ticket.danhSachGhe[0].maHeThongRap }}</p>
+                <p>Cinema: {{ ticket.danhSachGhe[0].tenHeThongRap }}</p>
+                <p>Room: {{ ticket.danhSachGhe[0].tenRap }}</p>
+                <div *ngFor="let item of ticket.danhSachGhe">
+                  <p>
+                    Seat: <span class="seat">{{ item.tenGhe }}</span>
+                  </p>
+                </div>
+              </td>
+              <td>
+                <p>
+                  Total Fare: {{ ticket.giaVe * ticket.danhSachGhe.length }}
+                </p>
+                <p>Date: {{ ticket.ngayDat | date: "dd/MM/yyyy" }}</p>
+                <p>Movie: {{ ticket.tenPhim }}</p>
+                <p>Time: {{ ticket.thoiLuongPhim }}" minute</p>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+    <div class="profile__edit">
+      <div class="edit__img">
+        <img src="../../../../../assets/image/carousel/avatar.jpg" alt="..." />
+      </div>
+      <h4 class="p-mt-3">
+        {{ user.hoTen }}
+        <i class="pi pi-user-edit" (click)="showMaximizableDialog()"></i>
+      </h4>
+      <div class="edit__content">
+        <p>User name: {{ user.taiKhoan }}</p>
+        <p>Password: {{ user.matKhau }}</p>
+        <p>Group: {{ user.maNhom }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Phone: {{ user.soDT }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #noTicket>
+  <div class="no__ticket p-text-center">
+    <h3>Loading List Ticket....</h3>
+    <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+  </div>
+</ng-template>
+<p-dialog
+  header="Edit User"
+  [(visible)]="popUpEdit"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [breakpoints]="{'960px': '60vw','769px':'75vw','500px':'95vw'}"
+  [baseZIndex]="10000"
+  [draggable]="false"
+>
+  <app-pop-up-edit-user></app-pop-up-edit-user>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="popUpEdit = false"
+      label="Exit"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

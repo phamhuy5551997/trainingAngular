@@ -1,0 +1,22 @@
+@import '../../../../utils/responsive.scss';
+#edit__user{
+  .input__form{
+    input{
+      height: 38px;
+      margin-bottom: 5px;
+      @include responsive(sm){
+        width: 100px !important;
+      }
+    }
+  }
+  .input__select{
+    width: 163px;
+    margin: 5px 0 10px;
+    select{
+      border: 1px solid rgb(156, 156, 156);
+      height: 38px;
+      font-size: 14px;
+    }
+  }
+}
+

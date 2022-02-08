@@ -6,8 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { BookingComponent } from './pages/booking/booking.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 //guard
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { LoginGuard } from 'src/app/core/guards/login/login.guard';
 
 const RoutesClient: Routes = [
   {
@@ -31,11 +33,18 @@ const RoutesClient: Routes = [
       },
       {
         path:"sign-up",
-        component:SignUpComponent
+        component:SignUpComponent,
+        canActivate:[LoginGuard]
       },
       {
         path:"sign-in",
-        component:SignInComponent
+        component:SignInComponent,
+        canActivate:[LoginGuard]
+      },
+      {
+        path:"profile",
+        component: ProfileComponent,
+        canActivate:[AuthGuard]
       }
     ]
 

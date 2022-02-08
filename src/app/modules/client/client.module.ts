@@ -7,7 +7,10 @@ import { ClientRoutingModule } from './client-routing.module';
 import { PipeModule } from 'src/app/core/pipes/pipe.module';
 //module primeNG
 import { PrimeNgModule } from '../../../app/core/shared/prime-ng/prime-ng.module';
-//module
+//Guard
+import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { LoginGuard } from 'src/app/core/guards/login/login.guard';
+//
 import { HomeComponent } from './pages/home/home.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
@@ -28,8 +31,8 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { ChairComponent } from './components/chair/chair.component';
 import { MessageComponent } from './components/message/message.component';
-import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { UserLoginComponent } from './components/user-login/user-login.component';
+import { PopUpEditUserComponent } from './components/pop-up-edit-user/pop-up-edit-user.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +58,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
     ChairComponent,
     MessageComponent,
     UserLoginComponent,
+    PopUpEditUserComponent,
   ],
   imports: [
     CommonModule,
@@ -65,7 +69,8 @@ import { UserLoginComponent } from './components/user-login/user-login.component
     PipeModule
   ],
   providers:[
-    AuthGuard
+    AuthGuard,
+    LoginGuard
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA,

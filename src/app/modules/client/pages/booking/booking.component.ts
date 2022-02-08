@@ -99,7 +99,7 @@ export class BookingComponent implements OnInit,DoCheck,OnDestroy {
   ngOnDestroy(): void {
     this.subscrip.forEach((sub,i)=>{
       sub.unsubscribe()
-      console.log('destroy sub' + i );
+      //console.log('destroy sub' + i );
     })
   }
 
