@@ -1,0 +1,60 @@
+<section id="page__search" *ngIf="total > 0;else loadingPage">
+  <div class="page__search">
+    <div class="header__search">
+      <div class="btn__home">
+        <p-button
+          label="Home"
+          icon="pi pi-arrow-left"
+          routerLink="/"
+        ></p-button>
+      </div>
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          type="text"
+          pInputText
+          placeholder="Search ..."
+          [(ngModel)]="inputSearch"
+          (keyup)="onSearch(inputSearch)"
+        />
+      </span>
+    </div>
+    <div class="main__search" *ngIf="Data2.length > 0;else noResule">
+      <div id="list__pagination">
+        <pagination-controls
+          (pageChange)="page = $event"
+          class="my-pagination"
+          responsive="true"
+        ></pagination-controls>
+      </div>
+      <p class="p-text-center total__resule">
+        total of <span>{{ Data2.length }}</span> movies matching search results
+        out of <span>{{total}}</span> movies
+      </p>
+      <div class="list__movie">
+        <app-item
+          [movie]="item"
+          (movieOut)="eventBookmark($event)"
+          *ngFor="
+            let item of Data2 | paginate: { itemsPerPage: 8, currentPage: page }
+          "
+        ></app-item>
+      </div>
+      <div id="list__pagination">
+        <pagination-controls
+          (pageChange)="page = $event"
+          class="my-pagination"
+          responsive="true"
+        ></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #noResule>
+  <div class="no__research">
+    <h5>currently no matching search results</h5>
+  </div>
+</ng-template>
+<ng-template #loadingPage>
+  <app-loading></app-loading>
+</ng-template>

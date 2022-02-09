@@ -1,0 +1,25 @@
+#header__admin{
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  .icon__mobile{
+    i{
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+  .img__admin{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #fff;
+    img{
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

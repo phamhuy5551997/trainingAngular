@@ -1,21 +1,31 @@
-<section id="detail__movie" *ngIf="movie.name !== 'anonymus';else notMovie">
+<section id="detail__movie" *ngIf="movie.name !== 'anonymus'; else notMovie">
   <div class="detail__movie">
     <div class="btn__home">
       <p-button label="Home" icon="pi pi-arrow-left" routerLink="/"></p-button>
+      <p-button
+        label="Back"
+        icon="pi pi-arrow-left"
+        (click)="onback()"
+        [style]="{ 'margin-left': '10px' }"
+      ></p-button>
     </div>
     <div class="detail__1">
       <div class="detail__img">
-        <img src={{movie.hinhAnh}} alt="..." width="200">
+        <img src="{{ movie.hinhAnh }}" alt="..." width="200" />
       </div>
       <div class="detail__content">
-        <h5 style="text-align: center;">{{movie.tenPhim}}</h5>
-        <p style="text-align: center;">Code -- {{movie.maPhim}} --</p>
-        <p style="text-align: center;">Rating -- {{movie.danhGia}} -- IMDB</p>
-        <p style="text-align: justify;">Description: {{movie.moTa}}</p>
+        <div class="p-p-2">
+          <h5 class="p-d-flex p-ai-center p-jc-center">
+            {{ movie.tenPhim }} <app-pop-up-video [dataPopUp]="movie"></app-pop-up-video>
+          </h5>
+        </div>
+        <p style="text-align: center">Code -- {{ movie.maPhim }} --</p>
+        <p style="text-align: center">Rating -- {{ movie.danhGia }} -- IMDB</p>
+        <p style="text-align: justify">Description: {{ movie.moTa }}</p>
       </div>
     </div>
     <div class="detail__2">
-      <app-show-time [time]="movie.lichChieu" ></app-show-time>
+      <app-show-time [time]="movie.lichChieu"></app-show-time>
     </div>
   </div>
 </section>

@@ -3,6 +3,7 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-detail-item',
@@ -18,7 +19,8 @@ export class DetailItemComponent implements OnInit,OnDestroy {
   constructor(
     private movieService:MovieService,
     private activatedRoute:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private location:Location
     ) { }
 
   ngOnInit(): void {
@@ -43,10 +45,15 @@ export class DetailItemComponent implements OnInit,OnDestroy {
     )
   }
 
+  onback(){
+    this.location.back();
+  }
+
   ngOnDestroy(): void {
       this.subscrip.forEach((sub,i)=>{
         sub.unsubscribe()
         //console.log('destroy sub' + i );
       })
   }
+
 }

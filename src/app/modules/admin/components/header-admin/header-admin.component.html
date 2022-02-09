@@ -1,0 +1,14 @@
+<section id="header__admin">
+  <div class="icon__mobile">
+    <i class="pi pi-align-justify" (click)="adminSideBar = true"></i>
+  </div>
+  <div class="img__admin">
+    <img src="../../../../../assets/image/carousel/avatar.jpg" alt="...">
+  </div>
+</section>
+<p-sidebar [(visible)]="adminSideBar" [baseZIndex]="10000" [style]="styleNav">
+  <h3>Admin Sidebar</h3>
+  <p-button type="button" (click)="adminSideBar = false" label="Save" styleClass="p-button-success p-mr-2"></p-button>
+  <p-button type="button" (click)="adminSideBar = false" label="Cancel" styleClass="p-button-secondary p-mr-2"></p-button>
+</p-sidebar>
+

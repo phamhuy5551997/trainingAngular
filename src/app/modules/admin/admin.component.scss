@@ -1,0 +1,13 @@
+@import '../../utils/responsive.scss';
+#admin__page{
+  .header__admin{
+    display: none;
+    @include responsive(sm){
+      display: block;
+    }
+  }
+  .content__admin{
+    display: grid;
+    grid-template-columns: 15% 85%;
+  }
+}

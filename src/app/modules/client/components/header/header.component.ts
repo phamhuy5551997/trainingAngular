@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   visibleSidebar1;
-  user:any={taiKhoan:'anonymus'}
-  constructor() { }
+  searchInput:string="";
+  user:any={taiKhoan:'anonymus'};
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('userLogin')){
@@ -21,7 +23,23 @@ export class HeaderComponent implements OnInit {
     localStorage.setItem('userLogin',JSON.stringify(this.user))
     const a = setTimeout(() => {
       window.location.reload()
-    }, 1000);
+    }, 500);
+  }
+
+  onSearch(){
+    if(this.searchInput === ""){
+      this.router.navigateByUrl(`/search/all`)
+    }else{
+      this.router.navigateByUrl(`/search/${this.searchInput}`)
+    }
+  }
+
+  onEnter(){
+    if(this.searchInput === ""){
+      this.router.navigateByUrl(`/search/all`)
+    }else{
+      this.router.navigateByUrl(`/search/${this.searchInput}`)
+    }
   }
 
 }

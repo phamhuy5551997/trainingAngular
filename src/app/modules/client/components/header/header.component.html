@@ -23,7 +23,13 @@
   <div style="display: flex; align-items: center" class="header__right">
     <div class="headerMenu__mobile1">
       <span class="p-float-label p-mr-2">
-        <input id="float-input" type="text" pInputText />
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          [(ngModel)]="searchInput"
+          (keyup.enter)="onEnter()"
+        />
         <label for="float-input">Search</label>
       </span>
       <span>
@@ -31,6 +37,7 @@
           type="button"
           icon="pi pi-search"
           class="p-button-rounded"
+          (click)="onSearch()"
         ></p-button>
       </span>
     </div>
@@ -51,7 +58,7 @@
         label="Sign-Up"
         icon="pi pi-pencil"
         class="p-button-outlined p-ml-2"
-        style="color: #fff;"
+        style="color: #fff"
         routerLink="/sign-up"
       ></button>
     </span>
@@ -85,7 +92,14 @@
   <hr />
   <div class="p-d-flex p-ai-center">
     <span class="p-float-label" style="height: 40px; margin-right: 10px">
-      <input id="float-input" type="text" pInputText style="height: 40px" />
+      <input
+        id="float-input"
+        type="text"
+        pInputText
+        style="height: 40px"
+        [(ngModel)]="searchInput"
+        (keyup.enter)="onEnter()"
+      />
       <label for="float-input">Search</label>
     </span>
     <span>
@@ -96,6 +110,7 @@
         icon="pi pi-search"
         class="p-button-rounded"
         (click)="visibleSidebar1 = false"
+        (click)="onSearch()"
       ></button>
     </span>
   </div>

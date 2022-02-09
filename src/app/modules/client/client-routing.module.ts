@@ -7,6 +7,7 @@ import { ClientComponent } from './client.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { SearchComponent } from './pages/search/search.component';
 //guard
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { LoginGuard } from 'src/app/core/guards/login/login.guard';
@@ -45,6 +46,10 @@ const RoutesClient: Routes = [
         path:"profile",
         component: ProfileComponent,
         canActivate:[AuthGuard]
+      },
+      {
+        path:"search/:tag",
+        component: SearchComponent,
       }
     ]
 

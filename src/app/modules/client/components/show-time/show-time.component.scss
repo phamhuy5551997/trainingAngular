@@ -4,7 +4,7 @@ p-table{
   tr{
     border: 2px solid rgb(73, 73, 73) !important;
     th,td{
-      text-align: center;
+      text-align: left;
       font-weight: bold;
       @include responsive(sm){
         text-align: left !important;

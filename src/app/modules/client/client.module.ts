@@ -33,6 +33,8 @@ import { ChairComponent } from './components/chair/chair.component';
 import { MessageComponent } from './components/message/message.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { PopUpEditUserComponent } from './components/pop-up-edit-user/pop-up-edit-user.component';
+import { SearchComponent } from './pages/search/search.component';
+import { PopUpVideoComponent } from './components/pop-up-video/pop-up-video.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { PopUpEditUserComponent } from './components/pop-up-edit-user/pop-up-edi
     MessageComponent,
     UserLoginComponent,
     PopUpEditUserComponent,
+    SearchComponent,
+    PopUpVideoComponent,
   ],
   imports: [
     CommonModule,
