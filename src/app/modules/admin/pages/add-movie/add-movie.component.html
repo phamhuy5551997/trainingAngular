@@ -1,1 +1,208 @@
-<p>add-movie works!</p>
+<section id="movies">
+  <h3>Movies Admin</h3>
+  <div class="p-d-flex p-mb-3">
+    <button
+      pButton
+      label="New Movie"
+      class="p-button-outlined"
+      icon="pi pi-plus"
+      (click)="showAddMovie()"
+    ></button>
+    <span class="p-input-icon-left p-ml-auto">
+      <i class="pi pi-search"></i>
+      <input
+        pInputText
+        type="text"
+        placeholder="Search keyword"
+        [(ngModel)]="searchFilter"
+        (keyup)="onChange()"
+      />
+    </span>
+  </div>
+  <div class="movies__item" *ngIf="searchFilter === ''; else noFilter">
+    <div class="card">
+      <p-table
+        [value]="listAll"
+        [paginator]="true"
+        [rows]="10"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 25, 50]"
+        [scrollable]="true"
+        scrollHeight="55vh"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Description</th>
+            <th>Action</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-listAll>
+          <tr>
+            <td>
+              <div class="p-d-flex p-ai-center">
+                <div>
+                  <img [src]="listAll.hinhAnh" alt="..." width="40" />
+                </div>
+                <div>
+                  <h5>{{ listAll.tenPhim | subStringPipe: 10 }} [{{ listAll.maPhim }}]</h5>
+                </div>
+              </div>
+            </td>
+            <td class="p-text-center">
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-clock"
+                class="p-button-rounded p-m-2"
+                (click)="showAddTime()"
+              ></button>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-pencil"
+                class="p-button-rounded p-button-success p-m-2"
+                (click)="showEditMovie()"
+              ></button>
+              <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-m-2"
+                (click)="ondelete(listAll.maPhim)"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</section>
+<ng-template #noFilter>
+  <div class="card">
+    <p-table
+      [value]="listFill"
+      [paginator]="true"
+      [rows]="10"
+      [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[10, 25, 50]"
+      [scrollable]="true"
+      scrollHeight="55vh"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-listFill>
+        <tr>
+          <td>
+            <div class="p-d-flex p-ai-center">
+              <div>
+                <img [src]="listFill.hinhAnh" alt="..." width="40" />
+              </div>
+              <div>
+                <h5>{{ listFill.tenPhim | subStringPipe: 10 }} [{{ listFill.maPhim }}]</h5>
+              </div>
+            </div>
+          </td>
+          <td class="p-text-center">
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-clock"
+              class="p-button-rounded p-m-2"
+              (click)="showAddTime()"
+            ></button>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-pencil"
+              class="p-button-rounded p-button-success p-m-2"
+              (click)="showEditMovie()"
+            ></button>
+            <button
+              pButton
+              pRipple
+              type="button"
+              icon="pi pi-trash"
+              class="p-button-rounded p-button-danger p-m-2"
+              (click)="ondelete(listAll.maPhim)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</ng-template>
+<!-- ---- -->
+<p-dialog
+  header="New Movie"
+  [(visible)]="CreateMovie"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+>
+  <app-new-movie></app-new-movie>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="CreateMovie = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>
+<!-- ---- -->
+<p-dialog
+  header="Edit Movie"
+  [(visible)]="editMovie"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+>
+  <p>
+    Edit movie
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="editMovie = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>
+<!-- ---- -->
+<p-dialog
+  header="Add Time"
+  [(visible)]="addTimeMovie"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  [draggable]="false"
+>
+  <p>
+    Add time
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="addTimeMovie = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>
+<!-- ---- -->
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast></p-toast>

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderAdminComponent implements OnInit {
   styleNav:any={
-    'width': '25rem',
+    'width': '15rem',
     'background-color': '#fff',
     'text-align': 'left'
   }

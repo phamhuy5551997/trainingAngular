@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { Com404Component } from './components/com404/com404.component';
 import { PrimeNgModule } from './core/shared/prime-ng/prime-ng.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {ChartModule} from 'primeng/chart';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     PrimeNgModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent],

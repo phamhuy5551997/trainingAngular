@@ -1,0 +1,42 @@
+@import '../../../../utils/responsive.scss';
+#dashboard{
+  padding: 10px;
+  .dashboard__1, .dashboard__2{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+    border: 2px solid rgba($color: #000000, $alpha: 0.3);
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    @include responsive(md){
+      grid-template-columns: repeat(2,1fr);
+    }
+    @include responsive(sm){
+      grid-template-columns: repeat(1,1fr);
+    }
+    .dashboard__item{
+      text-align: center;
+      background-color: $color-primary;
+      color: #fff;
+      border-radius: 15px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px 0;
+      .dashboard__item--text{
+        i{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .dashboard__2{
+    @include responsive(sm){
+      display: none;
+    }
+  }
+  .dashboard__3{
+    height: 200px !important;
+  }
+}

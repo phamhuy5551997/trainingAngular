@@ -26,7 +26,9 @@ import {SkeletonModule} from 'primeng/skeleton';
 import {BadgeModule} from 'primeng/badge';
 import {StepsModule} from 'primeng/steps';
 import {PasswordModule} from 'primeng/password';
-
+import {ChartModule} from 'primeng/chart';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [],
@@ -58,6 +60,9 @@ import {PasswordModule} from 'primeng/password';
     BadgeModule,
     StepsModule,
     PasswordModule,
+    ChartModule,
+    ConfirmDialogModule,
+    CalendarModule,
   ],
   exports:[
     AccordionModule,
@@ -86,6 +91,9 @@ import {PasswordModule} from 'primeng/password';
     BadgeModule,
     StepsModule,
     PasswordModule,
+    ChartModule,
+    ConfirmDialogModule,
+    CalendarModule,
   ]
 })
 export class PrimeNgModule { }

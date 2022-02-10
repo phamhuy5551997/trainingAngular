@@ -8,6 +8,22 @@
   }
   .content__admin{
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 10% 90%;
+    @include responsive(xl){
+      grid-template-columns: 15% 85%;
+    }
+    @include responsive(md){
+      grid-template-columns: 20% 80%;
+    }
+    @include responsive(sm){
+      display: block;
+    }
+    .admin__navbar{
+      height: 100vh;
+      background-color: rgb(196, 196, 196);
+      @include responsive(sm){
+        display: none;
+      }
+    }
   }
 }

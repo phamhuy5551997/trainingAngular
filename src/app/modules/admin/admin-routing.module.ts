@@ -6,7 +6,7 @@ import { AdminComponent } from './admin.component';
 import { AddMovieComponent } from './pages/add-movie/add-movie.component';
 import { AdminUserComponent } from './pages/admin-user/admin-user.component';
 import { DashboredComponent } from './pages/dashbored/dashbored.component';
-import { EditMovieComponent } from './pages/edit-movie/edit-movie.component';
+
 
 
 const routesAdmin: Routes = [
@@ -21,15 +21,11 @@ const routesAdmin: Routes = [
         component:DashboredComponent
       },
       {
-        path:"add-movie",
+        path:"movies",
         component:AddMovieComponent
       },
       {
-        path:"edit-movie",
-        component:EditMovieComponent
-      },
-      {
-        path:"list-user",
+        path:"users",
         component: AdminUserComponent
       }
     ]

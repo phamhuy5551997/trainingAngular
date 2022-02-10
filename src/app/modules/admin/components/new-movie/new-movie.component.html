@@ -1,0 +1,23 @@
+<section id="newMovie">
+  <form style="height: 100vh;">
+    <span class="p-float-label">
+      <input id="float-input" type="text" pInputText>
+      <label for="float-input">Name Movie</label>
+    </span>
+    <span class="p-float-label">
+      <input id="float-input" type="text" pInputText>
+      <label for="float-input">Trailer</label>
+    </span>
+    <span class="p-float-label">
+      <input id="float-input" type="text" pInputText>
+      <label for="float-input">Description</label>
+    </span>
+    <div class="p-field p-col-12">
+      <label for="basic">Basic</label>
+      <p-calendar inputId="basic" [showTime]="true" [(ngModel)]="date1" [ngModelOptions]="{standalone: true}"></p-calendar>
+    </div>
+
+    <button type="button" class="btn btn-danger" (click)="test()">button</button>
+
+  </form>
+</section>
