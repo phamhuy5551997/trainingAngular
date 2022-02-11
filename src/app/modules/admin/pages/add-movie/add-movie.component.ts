@@ -29,13 +29,15 @@ export class AddMovieComponent implements OnInit {
   getAllMovie(){
     this.movieService.GetAllMoviesHttp().subscribe(data=>{
       this.listAll = [...data];
-      console.log(this.listAll);
+      //console.log(this.listAll);
     })
   }
   onChange(){
     this.listFill=[];
-    let txt = this.searchFilter.trim().toLocaleLowerCase().replace(' ',"-")
-    console.log(txt);
+    let txt2 = this.searchFilter.trim().toLocaleLowerCase().replace(/[#_@$*!?><~"'`]/g,'');
+    let txt1 = txt2.replace(/\s\s+/g,' ');
+    let txt = txt1.replace(/\s/g,'-');
+    //console.log(txt);
     this.listAll?.filter(item=>{
       if(item.biDanh.indexOf(txt) !== -1){
         this.listFill.push(item);

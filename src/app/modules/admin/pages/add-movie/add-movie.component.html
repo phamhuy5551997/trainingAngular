@@ -40,12 +40,11 @@
         <ng-template pTemplate="body" let-listAll>
           <tr>
             <td>
-              <div class="p-d-flex p-ai-center">
-                <div>
-                  <img [src]="listAll.hinhAnh" alt="..." width="40" />
-                </div>
-                <div>
-                  <h5>{{ listAll.tenPhim | subStringPipe: 10 }} [{{ listAll.maPhim }}]</h5>
+              <div class="p-d-flex p-ai-end">
+                <img [src]="listAll.hinhAnh" alt="..." width="40" />
+                <div class="p-ml-3" style="line-height: 5px;">
+                  <p>{{ listAll.tenPhim | subStringPipe: 8 }}</p>
+                  <p>[{{ listAll.maPhim }}]</p>
                 </div>
               </div>
             </td>
@@ -150,6 +149,7 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
   [draggable]="false"
+  [breakpoints]="{'960px': '65vw', '769px': '80vw','450px': '95vw'}"
 >
   <app-new-movie></app-new-movie>
   <ng-template pTemplate="footer">
@@ -169,6 +169,7 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
   [draggable]="false"
+  [breakpoints]="{'960px': '65vw', '769px': '80vw','450px': '95vw'}"
 >
   <p>
     Edit movie
@@ -190,6 +191,7 @@
   [style]="{ width: '50vw' }"
   [baseZIndex]="10000"
   [draggable]="false"
+  [breakpoints]="{'960px': '65vw', '769px': '80vw','450px': '95vw'}"
 >
   <p>
     Add time

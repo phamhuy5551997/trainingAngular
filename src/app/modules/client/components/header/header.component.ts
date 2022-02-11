@@ -38,7 +38,10 @@ export class HeaderComponent implements OnInit {
     if(this.searchInput === ""){
       this.router.navigateByUrl(`/search/all`)
     }else{
-      this.router.navigateByUrl(`/search/${this.searchInput}`)
+      let txt2 = this.searchInput.trim().toLocaleLowerCase().replace(/[#_@$*!?><~"'`]/g,'');
+      let txt1 = txt2.replace(/\s\s+/g,' ');
+      let txt = txt1.replace(/\s/g,'-');
+      this.router.navigateByUrl(`/search/${txt}`)
     }
   }
 

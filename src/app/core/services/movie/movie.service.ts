@@ -9,7 +9,7 @@ import { catchError, retry,tap,map } from 'rxjs/operators';
 })
 export class MovieService {
   private Url = environment.URL;
-  private ListMovie:any = [];
+  //private ListMovie:any = [];
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       console.error('An error occurred:', error.error);
@@ -17,6 +17,8 @@ export class MovieService {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
+      const rel = {Error:error.error};
+      return [rel];
     }
     return throwError(
       'Something bad happened; please try again later.');
@@ -36,8 +38,14 @@ export class MovieService {
     )
   }
   //get List chair api
-  GetListChair(id:number){
+  GetListChair(id:number):Observable<any>{
     return this.http.get(`${this.Url}/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`).pipe(
+      catchError(this.handleError)
+    )
+  }
+  //upload new movie
+  UploadMovieAPI(data:any):Observable<any>{
+   return this.http.post(`${this.Url}/QuanLyPhim/ThemPhimUploadHinh`,data).pipe(
       catchError(this.handleError)
     )
   }

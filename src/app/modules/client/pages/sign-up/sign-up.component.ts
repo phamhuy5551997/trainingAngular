@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import {MessageService} from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MessageToastService } from 'src/app/core/services/message/message.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -16,7 +17,8 @@ export class SignUpComponent implements OnInit,OnDestroy {
     private authService:AuthService,
     private messageService: MessageService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private messageToastService:MessageToastService
     ) { }
   FormSignIn!:FormGroup;
   private subcript = new Subscription
@@ -124,22 +126,36 @@ export class SignUpComponent implements OnInit,OnDestroy {
       "maLoaiNguoiDung": "QuanTri",
       "hoTen": this.FormSignIn.get('fullName').value
     }
-    this.messageService.add({severity:'info', summary: 'Info', detail: 'The system is processing registration, please wait...'});
+    this.messageToastService.shareMessage.next(
+      {severity:'info', summary: 'Info', detail: 'The system is processing registration, please wait...'}
+    )
     this.subcript = this.authService.SignInUserAPI(dataSignIn).subscribe(
       data=>{
       //console.log('success',data);
-        this.messageService.add({key: 'bc', severity:'success', summary: 'Success', detail: 'Successful account registration !',life:10000});
-        this.messageService.add({severity:'info', summary: 'Info', detail: 'system redirect Sign-In after 8s ..'});
-        setTimeout(() => {
+        this.messageToastService.shareMessage.next(
+          { severity:'success', summary: 'Success', detail: 'Successful account registration !'}
+        )
+        this.messageToastService.shareMessage.next(
+          {severity:'info', summary: 'Info', detail: 'system redirect Sign-In after 4s ..'}
+        )
+        let a = setTimeout(() => {
           this.router.navigateByUrl('/sign-in');
-        }, 7000);
+          clearTimeout(a)
+        }, 4000);
+
       },
       Error=>{
         //console.log('oops',Error.error);
-        this.messageService.add({severity:'warn', summary: 'Warn', detail: `${Error.error}`,life:10000});
-        setTimeout(() => {
-          this.messageService.add({severity:'error', summary: 'Error', detail:'account registration failed !' ,life:10000});
+        this.messageToastService.shareMessage.next(
+          {severity:'warn', summary: 'Warn', detail: `${Error.error}`}
+        )
+        let b = setTimeout(() => {
+          this.messageToastService.shareMessage.next(
+            {severity:'error', summary: 'Error', detail:'account registration failed !'}
+          )
+          clearTimeout(b);
         }, 4000);
+
       }
     )
   }

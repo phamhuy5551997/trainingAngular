@@ -46,7 +46,8 @@ export class ListItemComponent implements OnInit,OnDestroy {
     if(resule === 1){
       this.messageService.add({severity:'info', life:7000 , summary: 'Add Movie Success', detail: `Bookmark ${dataMovie.tenPhim} `});
     }else if(resule === -1){
-      this.messageService.add({severity:'warn', life:7000 , summary: 'Archived Movie Bookmark !!'});
+      this.messageService.add({severity:'warn', life:7000 , summary: `Archived Movie Bookmark !!`,
+      detail:`${dataMovie.tenPhim}`});
     }
   }
   //destroy component

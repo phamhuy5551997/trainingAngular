@@ -30,7 +30,6 @@ import { ShowTimeComponent } from './components/show-time/show-time.component';
 import { BookingComponent } from './pages/booking/booking.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { ChairComponent } from './components/chair/chair.component';
-import { MessageComponent } from './components/message/message.component';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { PopUpEditUserComponent } from './components/pop-up-edit-user/pop-up-edit-user.component';
 import { SearchComponent } from './pages/search/search.component';
@@ -58,7 +57,6 @@ import { PopUpVideoComponent } from './components/pop-up-video/pop-up-video.comp
     BookingComponent,
     LoadingComponent,
     ChairComponent,
-    MessageComponent,
     UserLoginComponent,
     PopUpEditUserComponent,
     SearchComponent,

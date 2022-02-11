@@ -1,4 +1,4 @@
-<div id="showTime">
+<div id="showTime" *ngIf="time.length > 0;else noShowTime">
   <div class="p-d-flex">
     <button
       type="button"
@@ -69,6 +69,13 @@
     </p-table>
   </div>
 </div>
+
+<ng-template #noShowTime>
+  <div>
+    <h1>Showtime Information</h1>
+    <h3>No showtimes yet</h3>
+  </div>
+</ng-template>
 
 <!-- giaVe: 75000
 maLichChieu: 17341

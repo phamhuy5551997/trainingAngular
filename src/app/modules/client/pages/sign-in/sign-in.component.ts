@@ -6,6 +6,7 @@ import {MessageService} from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
+import { MessageToastService } from 'src/app/core/services/message/message.service';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -17,6 +18,7 @@ export class SignInComponent implements OnInit, OnDestroy {
     private authService:AuthService,
     private location:Location,
     private messageService:MessageService,
+    private messageToastService:MessageToastService,
   ) { }
   private subcript:Subscription
   ngOnInit(): void {
@@ -33,15 +35,20 @@ export class SignInComponent implements OnInit, OnDestroy {
     this.authService.LoginUserAPI(user).subscribe(
       data=>{
         //console.log(data);
-        this.messageService.add({severity:'success', summary: 'Login Succesful',life:5000, detail: `Hello ${data.hoTen}`});
+        this.messageToastService.shareMessage.next(
+          {severity:'info', summary: 'Login Succesful', detail: `Hello User ${data.hoTen}  !!` }
+        )
         localStorage.setItem('userLogin',JSON.stringify(data))
-        setTimeout(() => {
-          this.location.back()
-        }, 5000);
+        let a1 =  setTimeout(() => {
+          this.location.back();
+          clearTimeout(a1);
+        }, 2000);
       },
       Error=>{
         //console.log(Error.error);
-        this.messageService.add({severity:'error', summary: 'Error',life:5000, detail: `${Error.error}`});
+        this.messageToastService.shareMessage.next(
+          {severity:'error', summary: 'Error', detail: `${Error.error}`}
+        )
       }
     )
   }

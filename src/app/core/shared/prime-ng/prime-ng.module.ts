@@ -29,6 +29,7 @@ import {PasswordModule} from 'primeng/password';
 import {ChartModule} from 'primeng/chart';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {CalendarModule} from 'primeng/calendar';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @NgModule({
   declarations: [],
@@ -63,6 +64,7 @@ import {CalendarModule} from 'primeng/calendar';
     ChartModule,
     ConfirmDialogModule,
     CalendarModule,
+    FileUploadModule,
   ],
   exports:[
     AccordionModule,
@@ -94,6 +96,7 @@ import {CalendarModule} from 'primeng/calendar';
     ChartModule,
     ConfirmDialogModule,
     CalendarModule,
+    FileUploadModule,
   ]
 })
 export class PrimeNgModule { }
