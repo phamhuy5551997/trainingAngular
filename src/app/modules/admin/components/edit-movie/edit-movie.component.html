@@ -1,1 +1,112 @@
-<p>edit-movie works!</p>
+<section id="newMovie">
+  <div class="new__movie">
+    <div class="input__1">
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          [(ngModel)]="nameMovie"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="float-input">Name Movie</label>
+      </span>
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          [(ngModel)]="trailer"
+          [ngModelOptions]="{ standalone: true }"
+        />
+        <label for="float-input">Trailer</label>
+      </span>
+      <div>
+        <textarea
+          cols="30"
+          rows="7"
+          style="width: 100%; margin-bottom: 15px"
+          placeholder="Description..."
+          [(ngModel)]="descript"
+          [ngModelOptions]="{ standalone: true }"
+        ></textarea>
+      </div>
+      <div>
+        <p-calendar
+          inputId="basic"
+          [(ngModel)]="date1"
+          [ngModelOptions]="{ standalone: true }"
+          placeholder="Premiere Date ( 31/2/2022 )"
+          [style]="{ width: '100%' }"
+          hourFormat="24"
+          [monthNavigator]="true"
+          [yearNavigator]="true"
+          yearRange="1970:2050"
+          dateFormat="dd-mm-yy"
+        ></p-calendar>
+      </div>
+    </div>
+    <div class="input__2">
+      <div class="upload-btn-wrapper">
+        <button class="btn">
+          Choose Image
+          <i class="pi pi-cloud-upload" style="font-size: 2rem"></i>
+        </button>
+        <input
+          type="file"
+          name="myfile"
+          #file
+          (change)="onChange(file.files)"
+          accept="image/*"
+        />
+      </div>
+      <div class="img__title">
+        <p *ngIf="size">size: {{ size }} KB</p>
+      </div>
+      <div class="img__upload" *ngIf="imgURL; else noUpload">
+        <img [src]="imgURL" alt="..." />
+      </div>
+      <div class="p-my-4">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label={{codeMovie}}
+          class="p-button-danger p-mr-2"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Update Movie"
+          (click)="updateMovie()"
+        ></button>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #noUpload>
+  <img src="../../../../../assets/image/carousel/upload.png" alt="..." />
+</ng-template>
+<!-- ---- -->
+<p-toast></p-toast>
+<p-toast position="center" key="updateMovie" (onClose)="onReject()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="onConfirm()" label="Yes" class=""></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="onReject()" label="No" class="p-button-danger"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+

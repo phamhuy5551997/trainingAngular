@@ -38,9 +38,11 @@ export class DetailItemComponent implements OnInit,OnDestroy {
         this.movie={...data}
       },
       Error=>{
-        setTimeout(() => {
+        let a = setTimeout(() => {
           this.router.navigateByUrl('/notfound404')
+          clearTimeout(a);
         }, 4000);
+
       }
     )
   }

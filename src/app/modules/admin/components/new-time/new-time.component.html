@@ -1,1 +1,14 @@
-<p>new-time works!</p>
+<section id="New__showTime">
+  <div>
+    Code Movie:
+  </div>
+  <div>
+    <p-dropdown [options]="ArrTheater" [(ngModel)]="theater" [showClear]="true" editable="true" optionLabel="name"></p-dropdown>
+  </div>
+  <div class="p-field p-col-12 p-md-4">
+    <p-calendar [(ngModel)]="date" [showTime]="true" inputId="time" dateFormat="dd-mm-yy" appendTo="body" baseZIndex="10000" placeholder="primeri time"></p-calendar>
+  </div>
+
+  <button type="button" class="btn btn-danger" (click)="onClick()">button</button>
+
+</section>

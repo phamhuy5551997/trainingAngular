@@ -1,0 +1,52 @@
+@import '../../../../utils/responsive.scss';
+#newMovie{
+  overflow: hidden;
+  padding: 10px 0 20px;
+  input{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .new__movie{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 20px;
+    @include responsive(sm){
+      grid-template-columns: 100%;
+    }
+    .input__1{}
+    .input__2{
+      text-align: center;
+      .img__upload{
+        width: 100%;
+        height: 200px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 5px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
+}

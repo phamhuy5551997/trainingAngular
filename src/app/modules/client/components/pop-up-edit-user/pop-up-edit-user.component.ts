@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 import {MessageService} from 'primeng/api';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MessageToastService } from 'src/app/core/services/message/message.service';
 @Component({
   selector: 'app-pop-up-edit-user',
   templateUrl: './pop-up-edit-user.component.html',
@@ -17,7 +18,8 @@ export class PopUpEditUserComponent implements OnInit,OnDestroy {
     private authService:AuthService,
     private messageService: MessageService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private messageToastService:MessageToastService
   ) { }
   FormSignIn!:FormGroup;
   private subcript = new Subscription;
@@ -135,8 +137,14 @@ export class PopUpEditUserComponent implements OnInit,OnDestroy {
     this.subcript = this.authService.UpdateProfileAPI(dataUpdate).subscribe(
       data=>{
         //console.log('success',data);
-        this.messageService.add({severity:'success', summary: 'Success', detail: ' account update successful !',life:5000});
-        this.messageService.add({severity:'info', summary: 'Info', detail: 'system redirect Home after 5s ..'});
+        this.messageToastService.shareMessage.next(
+          {severity:'success', summary: 'Success', detail: ' account update successful !'}
+        );
+        this.messageToastService.shareMessage.next(
+          {severity:'info', summary: 'Info', detail: 'system SignOut after 5s ...'}
+        );
+        // this.messageService.add({severity:'success', summary: 'Success', detail: ' account update successful !',life:5000});
+        // this.messageService.add({severity:'info', summary: 'Info', detail: 'system redirect Home after 5s ..'});
         setTimeout(() => {
           let user = {taiKhoan:'anonymus'};
           localStorage.setItem('userLogin',JSON.stringify(user));
@@ -146,9 +154,13 @@ export class PopUpEditUserComponent implements OnInit,OnDestroy {
       },
       Error=>{
         //console.log('oops',Error.error);
-        this.messageService.add({severity:'warn', summary: 'Warn', detail: `${Error.error}`,life:10000});
+        this.messageToastService.shareMessage.next(
+          {severity:'warn', summary: 'Warn', detail: `${Error.error}`}
+        );
         setTimeout(() => {
-          this.messageService.add({severity:'error', summary: 'Error', detail:'account update failed !' ,life:10000});
+          this.messageToastService.shareMessage.next(
+            {severity:'error', summary: 'Error', detail:'account update failed !'}
+          );
         }, 3000);
       }
     )

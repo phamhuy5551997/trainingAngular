@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-time.component.scss']
 })
 export class NewTimeComponent implements OnInit {
-
-  constructor() { }
+  date:string='';
+  ArrTheater:any;
+  theater:string='';
+  constructor() {
+    this.ArrTheater = [
+      {name: 'New York', code: 'NY'},
+      {name: 'Rome', code: 'RM'},
+      {name: 'London', code: 'LDN'},
+      {name: 'Istanbul', code: 'IST'},
+      {name: 'Paris', code: 'PRS'}
+  ];
+  }
 
   ngOnInit(): void {
+  }
+
+  onClick(){
+    console.log(this.theater)
+    console.log(this.date)
   }
 
 }

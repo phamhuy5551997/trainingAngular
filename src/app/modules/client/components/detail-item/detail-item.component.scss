@@ -1,8 +1,7 @@
 @import '../../../../utils/responsive.scss';
 #detail__movie{
-  margin-left: auto;
   .detail__movie{
-    width: 1366px;
+    max-width: 1366px;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-column-gap: 50px;
@@ -19,7 +18,7 @@
       flex-direction: column;
       position: absolute;
       min-height: 100vh;
-      padding: 40px 15px;
+      padding: 40px 60px;
     }
     @include responsive(sm){
       padding: 60px 15px;

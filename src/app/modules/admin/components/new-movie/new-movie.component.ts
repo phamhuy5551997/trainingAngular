@@ -60,7 +60,7 @@ export class NewMovieComponent implements OnInit {
           trailer	:trailer,
           hinhAnh	: upload,
           moTa : descript,
-          maNhom: 'GP09999',
+          maNhom: 'GP09',
           ngayKhoiChieu: dateFomat,
           danhGia:	8
         }

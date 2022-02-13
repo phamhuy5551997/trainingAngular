@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Location } from '@angular/common';
 import {MessageService} from 'primeng/api';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { MessageToastService } from 'src/app/core/services/message/message.service';
 
 @Component({
   selector: 'app-booking',
@@ -29,7 +30,8 @@ export class BookingComponent implements OnInit,DoCheck,OnDestroy {
     private location:Location,
     private messageService: MessageService,
     private authService:AuthService,
-    private router:Router
+    private router:Router,
+    private messageToastService:MessageToastService
   ) { }
 
   ngOnInit(): void {
@@ -111,12 +113,17 @@ export class BookingComponent implements OnInit,DoCheck,OnDestroy {
       this.authService.BookingTicket(data).subscribe(
         data=>{
         },Error=>{
-          console.log(Error.error.text);
-          this.messageService.add({severity:'success', summary: 'Success', detail: 'Booking Ticket successful !',life:6000});
-          this.messageService.add({severity:'info', summary: 'Info', detail: 'System redirect to profile after 5s !',life:6000});
-          setTimeout(() => {
-            this.router.navigateByUrl('/profile')
-          }, 5000);
+          //console.log(Error.error.text);
+          this.messageToastService.shareMessage.next(
+            {severity:'success', summary: 'Success', detail: 'Booking Ticket successful !'}
+          )
+          this.messageToastService.shareMessage.next(
+            {severity:'info', summary: 'Info', detail: 'System redirect to profile after 3s !'}
+          )
+          let a = setTimeout(() => {
+            this.router.navigateByUrl('/profile');
+            clearTimeout(a);
+          }, 2000);
         }
       )
   }

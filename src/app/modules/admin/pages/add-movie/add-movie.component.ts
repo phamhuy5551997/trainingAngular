@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from 'src/app/core/services/movie/movie.service';
 import {ConfirmationService, ConfirmEventType, MessageService} from 'primeng/api';
-
+import { ShareDataService } from 'src/app/core/services/share-data/share-data.service';
 @Component({
   selector: 'app-add-movie',
   templateUrl: './add-movie.component.html',
@@ -21,6 +21,7 @@ export class AddMovieComponent implements OnInit {
     private movieService:MovieService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
+    private shareDataService:ShareDataService
   ) { }
 
   ngOnInit(): void {
@@ -47,18 +48,30 @@ export class AddMovieComponent implements OnInit {
   showAddMovie(){
     this.CreateMovie = true;
   }
-  showEditMovie(){
+  showEditMovie(movie:any){
     this.editMovie = true;
+    this.shareDataService.shareData.next(movie)
   }
-  showAddTime(){
+  showAddTime(id:number){
     this.addTimeMovie = true;
+    this.shareDataService.shareIdAddTime.next(id);
   }
-  ondelete(id){
+  ondelete(id:number){
     this.idDelete = id
     this.confirmationService.confirm({
       message: 'Are you sure that you want to Delete Movie ?',
       accept: () => {
-        this.messageService.add({severity:'info', summary:'Confirmed', detail:'You have accepted'});
+        this.movieService.DeleteMovieAPI(id).subscribe(
+          res=>{
+            if(res.Error){
+              if(res.Error.text){
+                this.messageService.add({severity:'info', summary:'Info', detail:`${res.Error.text}`});
+              }else{
+                this.messageService.add({severity:'error', summary:'Error', detail:`${res.Error}`});
+              }
+            }
+          }
+        )
       },
       reject: (type) => {
           switch(type) {
