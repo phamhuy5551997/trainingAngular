@@ -1,14 +1,17 @@
 <section id="New__showTime">
-  <div>
-    Code Movie:
+  <div class="p-mb-4 p-d-flex p-jc-between">
+    <span class="code__movie">Code Movie: {{movie?.maPhim}}</span>
+    <span class="p-ml-3 code__movie">Movie: {{movie?.tenPhim}}</span>
   </div>
-  <div>
-    <p-dropdown [options]="ArrTheater" [(ngModel)]="theater" [showClear]="true" editable="true" optionLabel="name"></p-dropdown>
+  <div class="p-mb-4">
+    <p>System cinema</p>
+    <p-dropdown [options]="ArrTheater" [(ngModel)]="theater" [showClear]="true" editable="true" optionLabel="name" [style]="{ width: '100%' }"></p-dropdown>
   </div>
-  <div class="p-field p-col-12 p-md-4">
-    <p-calendar [(ngModel)]="date" [showTime]="true" inputId="time" dateFormat="dd-mm-yy" appendTo="body" baseZIndex="10000" placeholder="primeri time"></p-calendar>
+  <div class="p-mb-4">
+    <p>Premiere</p>
+    <p-calendar [(ngModel)]="date" [showTime]="true" inputId="time" dateFormat="dd-mm-yy" appendTo="body" baseZIndex="10000" placeholder="Premiere time" [style]="{ width: '100%' }"></p-calendar>
   </div>
-
-  <button type="button" class="btn btn-danger" (click)="onClick()">button</button>
-
+  <div class="p-text-center">
+    <button pButton pRipple type="button" label="Add Showtime" (click)="onAddMovie()"></button>
+  </div>
 </section>

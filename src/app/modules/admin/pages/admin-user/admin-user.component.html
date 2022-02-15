@@ -1,1 +1,125 @@
-<p>admin-user works!</p>
+<div class="card" id="list__users">
+  <h3>List Users Admin</h3>
+  <div class="p-d-flex p-mb-3">
+    <button
+      pButton
+      label="New User"
+      class="p-button-outlined"
+      icon="pi pi-plus"
+
+    ></button>
+    <span class="p-input-icon-left p-ml-auto">
+      <i class="pi pi-search"></i>
+      <input
+        pInputText
+        type="text"
+        placeholder="Search keyword"
+        [(ngModel)]="searchFilter"
+        (keyup)="onChange()"
+      />
+    </span>
+  </div>
+  <div *ngIf="searchFilter === ''; else noFilter">
+    <p-table [value]="listUser" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users" [rowsPerPageOptions]="[10,25,50]" [scrollable]="true" scrollHeight="400px">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Infomation Users</th>
+              <th>Action</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-listUser>
+          <tr>
+              <td [style]="{'text-align':'left'}">
+                <ul>
+                  <li>User: {{listUser.taiKhoan}}</li>
+                  <li>Password: {{listUser.matKhau}}</li>
+                  <li>Name: {{listUser.hoTen}}</li>
+                  <li>Phone: {{listUser.soDT}}</li>
+                  <li>Email: {{listUser.email}}</li>
+                  <li>
+                    Option:
+                    <span>
+                      {{listUser.maLoaiNguoiDung}}
+                    </span>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-m-2"
+                (click)="ondeleteUser(listUser)"
+                pTooltip="Delete"
+                ></button>
+              </td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+
+<ng-template #noFilter>
+  <p-table [value]="listFill" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} users" [rowsPerPageOptions]="[10,25,50]" [scrollable]="true" scrollHeight="400px">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Infomation Users</th>
+              <th>Action</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-listFill>
+          <tr>
+              <td [style]="{'text-align':'left'}">
+                <ul>
+                  <li>User: {{listFill.taiKhoan}}</li>
+                  <li>Password: {{listFill.matKhau}}</li>
+                  <li>Name: {{listFill.hoTen}}</li>
+                  <li>Phone: {{listFill.soDT}}</li>
+                  <li>Email: {{listFill.email}}</li>
+                  <li>
+                    Option:
+                    <span>
+                      {{listFill.maLoaiNguoiDung}}
+                    </span>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <button
+                pButton
+                pRipple
+                type="button"
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger p-m-2"
+                (click)="ondeleteUser(listFill)"
+                pTooltip="Delete"
+                ></button>
+              </td>
+          </tr>
+      </ng-template>
+    </p-table>
+</ng-template>
+
+<p-toast position="center" key="deleteUser" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div class="p-flex p-flex-column" style="flex: 1">
+          <div class="p-text-center">
+              <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+              <h4>{{message.summary}}</h4>
+              <p>{{message.detail}}</p>
+          </div>
+          <div class="p-grid p-fluid">
+              <div class="p-col-6">
+                  <button type="button" pButton (click)="onConfirm()" label="Yes" class=""></button>
+              </div>
+              <div class="p-col-6">
+                  <button type="button" pButton (click)="onReject()" label="No" class="p-button-danger"></button>
+              </div>
+          </div>
+      </div>
+  </ng-template>
+</p-toast>

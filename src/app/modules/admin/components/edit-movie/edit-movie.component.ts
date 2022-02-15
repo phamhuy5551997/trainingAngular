@@ -92,19 +92,19 @@ export class EditMovieComponent implements OnInit {
     this.movieService.UpdateMovieAPI(form_data1).subscribe(
       res=>{
         console.log(res)
-        // if(res.Error){
-        //   this.messageToastService.shareMessage.next(
-        //     {severity:'error', summary: 'Error', detail: `${res.Error}`}
-        //   )
-        // }else{
-        //   this.messageToastService.shareMessage.next(
-        //     {severity:'success', summary: 'Success', detail: 'Update movie successfull !'}
-        //   )
-        //   const a = setTimeout(() => {
-        //     window.location.reload()
-        //     clearTimeout(a);
-        //   }, 5000);
-        // }
+        if(res.Error){
+          this.messageToastService.shareMessage.next(
+            {severity:'error', summary: 'Error', detail: `${res.Error}`}
+          )
+        }else{
+          this.messageToastService.shareMessage.next(
+            {severity:'success', summary: 'Success', detail: 'Update movie successfull !'}
+          )
+          const a = setTimeout(() => {
+            window.location.reload()
+            clearTimeout(a);
+          }, 5000);
+        }
       }
     )
   }

@@ -50,11 +50,11 @@ export class AddMovieComponent implements OnInit {
   }
   showEditMovie(movie:any){
     this.editMovie = true;
-    this.shareDataService.shareData.next(movie)
+    this.shareDataService.shareData.next(movie);
   }
-  showAddTime(id:number){
+  showAddTime(movie:any){
     this.addTimeMovie = true;
-    this.shareDataService.shareIdAddTime.next(id);
+    this.shareDataService.shareIdAddTime.next(movie);
   }
   ondelete(id:number){
     this.idDelete = id

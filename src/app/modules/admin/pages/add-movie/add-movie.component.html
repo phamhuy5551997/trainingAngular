@@ -55,7 +55,7 @@
                 type="button"
                 icon="pi pi-clock"
                 class="p-button-rounded p-m-2"
-                (click)="showAddTime(listAll.maPhim)"
+                (click)="showAddTime(listAll)"
               ></button>
               <button
                 pButton
@@ -116,7 +116,7 @@
               type="button"
               icon="pi pi-clock"
               class="p-button-rounded p-m-2"
-              (click)="showAddTime(listAll.maPhim)"
+              (click)="showAddTime(listFill)"
             ></button>
             <button
               pButton
@@ -124,7 +124,7 @@
               type="button"
               icon="pi pi-pencil"
               class="p-button-rounded p-button-success p-m-2"
-              (click)="showEditMovie(listAll)"
+              (click)="showEditMovie(listFill)"
             ></button>
             <button
               pButton
@@ -132,7 +132,7 @@
               type="button"
               icon="pi pi-trash"
               class="p-button-rounded p-button-danger p-m-2"
-              (click)="ondelete(listAll.maPhim)"
+              (click)="ondelete(listFill.maPhim)"
             ></button>
           </td>
         </tr>

@@ -20,8 +20,8 @@ export class MovieService {
       const rel = {Error:error.error};
       return [rel];
     }
-    return throwError(
-      'Something bad happened; please try again later.');
+    let resule1 = {Error:'Something bad happened; please try again later'}
+    return [resule1]
   }
 
   constructor(private http:HttpClient) { }
@@ -58,10 +58,12 @@ export class MovieService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':'application/json',
+        'Access-Control-Allow-Origin':'',
          Authorization:'my-auth-token'
       })
     };
     httpOptions.headers = httpOptions.headers.set('Authorization', `Bearer ${user.accessToken}`);
+    httpOptions.headers = httpOptions.headers.set('Access-Control-Allow-Origin','*');
     return httpOptions;
   }
   //update movie API
@@ -80,9 +82,10 @@ export class MovieService {
     )
   }
   // Add new showTime
-  NewShowTime(data:any){
+  NewShowTime(data:any):Observable<any>{
     const token = this.GetTokenUser();
-    return this.http.post(`${this.Url}QuanLyDatVe/TaoLichChieu`,data,token).pipe(
+    console.log(token)
+    return this.http.post(`${this.Url}/QuanLyDatVe/TaoLichChieu`,data,token).pipe(
       catchError(this.handleError)
     )
   }

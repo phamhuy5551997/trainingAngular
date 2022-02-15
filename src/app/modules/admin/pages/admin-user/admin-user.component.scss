@@ -1,0 +1,25 @@
+@import '../../../../utils/responsive.scss';
+#list__users{
+  margin: 10px 20px;
+  padding: 5px;
+  @include responsive(sm){
+    margin: 10px 5px;
+  }
+}
+
+p-table{
+  th,td{
+    text-align: center;
+    li{
+      span{
+        background-color: #f03;
+        padding: 5px;
+        border-radius: 5px;
+        color: #fff;
+      }
+      .aaa{
+        background-color: #0f0;
+      }
+    }
+  }
+}

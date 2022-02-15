@@ -18,11 +18,14 @@ export class AuthService {
       console.error(
         `Backend returned code ${error.status}, ` +
         `body was: ${error.error}`);
-      return error.error
+        let resule = {Error:error.error}
+      return [resule]
     }
-    return throwError(
-      'Something bad happened; please try again later.');
+    // return throwError(
+    //   'Something bad happened; please try again later.');
     //return 'Something bad happened; please try again later.'
+    let resule1 = {Error:'Something bad happened; please try again later'}
+    return [resule1]
   }
   // get token user
   GetTokenUser(){
@@ -66,6 +69,19 @@ export class AuthService {
     return this.http.post(`${this.Url}/QuanLyDatVe/DatVe`,data,token).pipe(
       //catchError(this.handleError)
     )
+  }
+  //get all user
+  GetAllUsers():Observable<any>{
+    return this.http.get(`${this.Url}/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP09`).pipe(
+
+    )
+  }
+  //Delete User{
+    DeleteUser(user:string):Observable<any>{
+      const token = this.GetTokenUser();
+      return this.http.delete(`${this.Url}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,token).pipe(
+        catchError(this.handleError)
+      )
   }
 
 }
