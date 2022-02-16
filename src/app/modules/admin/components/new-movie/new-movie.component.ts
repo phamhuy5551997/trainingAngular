@@ -87,10 +87,11 @@ export class NewMovieComponent implements OnInit {
           this.messageToastService.shareMessage.next(
             {severity:'success', summary: 'Success', detail: 'Upload movie successfull !'}
           )
-          const a = setTimeout(() => {
+          const a11 = setTimeout(() => {
             window.location.reload()
+            clearTimeout(a11);
           }, 5000);
-          clearTimeout(a);
+
         }
       }
     )

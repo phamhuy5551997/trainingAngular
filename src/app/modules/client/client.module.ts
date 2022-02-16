@@ -34,6 +34,7 @@ import { UserLoginComponent } from './components/user-login/user-login.component
 import { PopUpEditUserComponent } from './components/pop-up-edit-user/pop-up-edit-user.component';
 import { SearchComponent } from './pages/search/search.component';
 import { PopUpVideoComponent } from './components/pop-up-video/pop-up-video.component';
+import { MultipeCarouselComponent } from './components/multipe-carousel/multipe-carousel.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { PopUpVideoComponent } from './components/pop-up-video/pop-up-video.comp
     PopUpEditUserComponent,
     SearchComponent,
     PopUpVideoComponent,
+    MultipeCarouselComponent,
   ],
   imports: [
     CommonModule,

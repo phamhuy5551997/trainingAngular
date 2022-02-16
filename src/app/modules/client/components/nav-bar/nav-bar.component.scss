@@ -17,9 +17,9 @@
 p-table{
   text-align: center;
   tr{
-    &:hover{
-      background-color: rgba($color: #000, $alpha: 0.2);
-    }
+    // &:hover{
+    //   background-color: rgba($color: #000, $alpha: 0.2);
+    // }
     th,td{
       text-align: center;
     }
@@ -30,9 +30,9 @@ p-table{
     }
   }
   .p-button{
-    &:hover{
-      background-color: #000 !important;
-    }
+    // &:hover{
+    //   background-color: #000 !important;
+    // }
     @include responsive(sm){
       padding: 4px;
       font-size: 9px;

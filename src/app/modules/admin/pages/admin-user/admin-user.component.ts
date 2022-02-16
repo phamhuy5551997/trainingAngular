@@ -14,6 +14,7 @@ export class AdminUserComponent implements OnInit {
   searchFilter:string="";
   listFill:any=[];
   userDelete:string="";
+  displayNewUser:boolean;
   constructor(
     private authService:AuthService,
     private messageService: MessageService,
@@ -23,7 +24,7 @@ export class AdminUserComponent implements OnInit {
   ngOnInit(): void {
     this.getAllUser();
   }
-
+  //---------
   getAllUser(){
     this.listUser=[];
     this.authService.GetAllUsers().subscribe(data=>{
@@ -31,13 +32,13 @@ export class AdminUserComponent implements OnInit {
       //console.log(this.listUser);
     })
   }
-
+  //---------
   ondeleteUser(v:any){
     this.userDelete = v.taiKhoan;
     this.messageService.clear();
     this.messageService.add({key: 'deleteUser', sticky: true, severity:'warn', summary:'Are you sure Delete User?', detail:'Confirm to proceed'});
   }
-
+  //----------
   onConfirm() {
     this.messageService.clear('deleteUser');
     this.authService.DeleteUser(this.userDelete).subscribe(res=>{
@@ -55,11 +56,10 @@ export class AdminUserComponent implements OnInit {
       }
     })
   }
-
   onReject() {
     this.messageService.clear('deleteUser');
   }
-
+  //----------
   onChange(){
     this.listFill=[];
     let txt2 = this.searchFilter.trim().toLocaleLowerCase().replace(/[#_@$*!?><~"'`]/g,'');
@@ -71,5 +71,10 @@ export class AdminUserComponent implements OnInit {
       }
     });
   }
+  //--------
+  onNewUser(){
+    this.displayNewUser = true;
+  }
+
 
 }

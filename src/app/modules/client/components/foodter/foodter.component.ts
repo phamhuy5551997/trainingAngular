@@ -11,5 +11,8 @@ export class FoodterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onOpen(){
+    window.open("https://www.youtube.com/", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=100px,left=50px,width=600px,height=400px");
+  }
 
 }

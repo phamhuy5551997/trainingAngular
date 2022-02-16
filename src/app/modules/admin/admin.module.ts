@@ -2,7 +2,7 @@
 
 import { NgModule,NO_ERRORS_SCHEMA,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin.component';
 //module
 import { PrimeNgModule } from './../../core/shared/prime-ng/prime-ng.module';
@@ -18,12 +18,14 @@ import { HeaderAdminComponent } from './components/header-admin/header-admin.com
 import { NewMovieComponent } from './components/new-movie/new-movie.component';
 import { EditMovieComponent } from './components/edit-movie/edit-movie.component';
 import { NewTimeComponent } from './components/new-time/new-time.component';
+import { PopUpUserAdminComponent } from './components/pop-up-user-admin/pop-up-user-admin.component';
 
 @NgModule({
-  declarations: [AdminComponent, DashboredComponent, AdminUserComponent, AddMovieComponent,  NavbarComponent, AdminListUserComponent, HeaderAdminComponent, NewMovieComponent, EditMovieComponent, NewTimeComponent],
+  declarations: [AdminComponent, DashboredComponent, AdminUserComponent, AddMovieComponent,  NavbarComponent, AdminListUserComponent, HeaderAdminComponent, NewMovieComponent, EditMovieComponent, NewTimeComponent, PopUpUserAdminComponent],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AdminRoutingModule,
     PrimeNgModule,
     PipeModule

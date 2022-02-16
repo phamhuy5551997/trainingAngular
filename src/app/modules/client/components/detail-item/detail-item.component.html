@@ -24,7 +24,7 @@
         <p style="text-align: justify">Description: {{ movie.moTa }}</p>
       </div>
     </div>
-    <div class="detail__2">
+    <div class="detail__2" *ngIf="movie.lichChieu.length > 0;else noShowTime">
       <app-show-time [time]="movie.lichChieu"></app-show-time>
     </div>
   </div>
@@ -32,4 +32,10 @@
 <ng-template #notMovie>
   <app-loading></app-loading>
 </ng-template>
+<ng-template #noShowTime>
+  <div style="width: 90vw;">
+    <h1>No showTime</h1>
+  </div>
+</ng-template>
+
 

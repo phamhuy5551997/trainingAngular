@@ -6,24 +6,28 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class AdminGuard implements CanActivate {
   constructor(private router:Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if(localStorage.getItem('userLogin')){
-       let userLogin = JSON.parse(localStorage.getItem('userLogin'));
-       if(userLogin.taiKhoan === 'anonymus'){
-        this.router.navigateByUrl('/sign-in');
-        return false
+        let user = JSON.parse(localStorage.getItem('userLogin'));
+         if(user?.taiKhoan === 'anonymus'){
+           this.router.navigateByUrl('/');
+           return false;
+         }else{
+          if(user?.maLoaiNguoiDung === 'QuanTri'){
+            return true
+          }else{
+            this.router.navigateByUrl('/');
+            return false;
+          }
+         }
        }else{
-         return true
+         this.router.navigateByUrl('/');
+         return false;
        }
-      }else{
-        this.router.navigateByUrl('/sign-in');
-        return false;
-      }
-
   }
 
 }

@@ -1,0 +1,41 @@
+@import '../../../../utils/responsive.scss';
+#sign-up-admin{
+  #form__signUp{
+    width: 100%;
+    margin-left: auto;
+    text-align: center;
+    //min-height: 100vh;
+    position: relative;
+    input.ng-invalid.ng-touched{
+      border-left: 3px solid #f03;
+    }
+    input.ng-valid.ng-touched{
+      border-left: 3px solid #0f5;
+    }
+    input{
+      height: 35px;
+      font-size: 12px;
+    }
+    .input__form{
+      //margin-bottom: 5px;
+      justify-content: center;
+    }
+    .mess__newUser{
+      height: 20px;
+      margin-bottom: 5px;
+    }
+    .btn__submit{
+      .btn{
+        outline: none;
+        padding: 7px 25px;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: $color-primary;
+        border-color: $color-primary;
+        color: #fff;
+      }
+    }
+  }
+
+
+}

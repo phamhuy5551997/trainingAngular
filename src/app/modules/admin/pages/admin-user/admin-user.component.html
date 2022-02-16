@@ -1,12 +1,12 @@
-<div class="card" id="list__users">
-  <h3>List Users Admin</h3>
+<div class="" id="list__users">
+  <h3 class="p-mb-3">List Users Admin</h3>
   <div class="p-d-flex p-mb-3">
     <button
       pButton
       label="New User"
       class="p-button-outlined"
       icon="pi pi-plus"
-
+      (click)="onNewUser()"
     ></button>
     <span class="p-input-icon-left p-ml-auto">
       <i class="pi pi-search"></i>
@@ -123,3 +123,10 @@
       </div>
   </ng-template>
 </p-toast>
+
+<p-dialog header="New User" [(visible)]="displayNewUser" [modal]="true" [style]="{width: '50vw'}" [baseZIndex]="10000" [breakpoints]="{'960px': '65vw','769px': '70vw','450px': '90vw'}">
+  <app-pop-up-user-admin></app-pop-up-user-admin>
+  <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check" (click)="displayNewUser=false" label="exit" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

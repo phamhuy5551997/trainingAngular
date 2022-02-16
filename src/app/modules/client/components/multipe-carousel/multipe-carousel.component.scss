@@ -1,0 +1,28 @@
+@import '../../../../utils/responsive.scss';
+#multipe__carousel{
+  width: 70%;
+  margin: auto;
+  background-color: #000;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  padding-top: 20px;
+  min-height: 500px;
+  @include responsive(xl){
+    width: 85%;
+  }
+  @include responsive(md){
+    width: 90%;
+  }
+  @include responsive(sm){
+    width: 95%;
+  }
+  @include responsive(xs){
+    width: 90%;
+    padding: 35px;
+  }
+  h3{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
