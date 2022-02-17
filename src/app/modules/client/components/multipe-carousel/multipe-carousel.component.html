@@ -2,13 +2,17 @@
   [breakpoints]="{ '560px': { width: '100%', right: '0', left: '0' } }"
 ></p-toast>
 <div id="multipe__carousel">
-  <p-carousel [value]="listAll1" styleClass="custom-carousel" [numVisible]="4" [numScroll]="2" [circular]="true" [autoplayInterval]="6000" [responsiveOptions]="responsiveOptions">
-    <ng-template pTemplate="header">
-        <h3>Most Watched Movies List</h3>
-    </ng-template>
-    <ng-template let-listAll1 pTemplate="item">
-        <app-item [movie]="listAll1" (movieOut)="bookmark($event)"></app-item>
-    </ng-template>
-  </p-carousel>
+  <div>
+    <p-carousel [value]="listAll1" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true" [autoplayInterval]="6000" [responsiveOptions]="responsiveOptions" [style]="{
+      'color': '#fff'
+    }">
+      <ng-template pTemplate="header">
+          <h3>Most Watched Movies List</h3>
+      </ng-template>
+      <ng-template let-listAll1 pTemplate="item">
+          <app-item [movie]="listAll1" (movieOut)="bookmark($event)"></app-item>
+      </ng-template>
+    </p-carousel>
+  </div>
 </div>
 

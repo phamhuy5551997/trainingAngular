@@ -24,17 +24,17 @@ export class MultipeCarouselComponent implements OnInit,OnDestroy {
       {
           breakpoint: '1025px',
           numVisible: 4,
-          numScroll: 4
+          numScroll: 1
       },
       {
-          breakpoint: '769px',
+          breakpoint: '992px',
           numVisible: 3,
-          numScroll: 3
+          numScroll: 1
       },
       {
           breakpoint: '560px',
           numVisible: 2,
-          numScroll: 2
+          numScroll: 1
       },
       {
         breakpoint: '375px',
@@ -58,7 +58,6 @@ export class MultipeCarouselComponent implements OnInit,OnDestroy {
   randomMovie(){
     let a = Math.floor(Math.random() * 10);
     this.listAll1=this.listAll.slice(a, a+16)
-    console.log(this.listAll1)
   }
 
   bookmark(dataMovie){

@@ -66,6 +66,7 @@ export class AddMovieComponent implements OnInit {
             if(res.Error){
               if(res.Error.text){
                 this.messageService.add({severity:'info', summary:'Info', detail:`${res.Error.text}`});
+                this.onFillterDelete(id);
               }else{
                 this.messageService.add({severity:'error', summary:'Error', detail:`${res.Error}`});
               }
@@ -81,5 +82,10 @@ export class AddMovieComponent implements OnInit {
           }
       }
     });
+  }
+  onFillterDelete(id:number){
+   let arrTemp = this.listAll.filter(item => item.maPhim !== id);
+   this.listAll=[...arrTemp];
+   console.log(this.listAll);
   }
 }

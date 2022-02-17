@@ -26,3 +26,24 @@
     margin-bottom: 30px;
   }
 }
+:host ::ng-deep .custom-carousel.p-carousel{
+  .p-carousel-header{
+
+  }
+  .p-carousel-content{
+    .p-carousel-container{
+      .p-carousel-prev,.p-carousel-next{
+        background-color: #673AB7;
+        color: #fff;
+      }
+    }
+  }
+  .p-carousel-indicators{
+    .p-carousel-indicator.p-highlight{
+      button.p-link{
+        background-color: #f03 !important;
+      }
+    }
+  }
+}
+
