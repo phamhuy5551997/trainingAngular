@@ -8,6 +8,7 @@ import {MessageService} from 'primeng/api';
   providers: [MessageService]
 })
 export class AppComponent implements OnInit {
+  title:string='project1'
   mes:any={}
   constructor(
     private messageService: MessageService,

@@ -1,12 +1,14 @@
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
+//import { FormBuilder, FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import {MessageService} from 'primeng/api';
 import { Subscription } from 'rxjs';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+//import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 import { MessageToastService } from 'src/app/core/services/message/message.service';
+import { User } from 'src/app/core/interfaces/user';
+import { UserClass } from 'src/app/core/models/user.model';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -20,19 +22,21 @@ export class SignInComponent implements OnInit, OnDestroy {
     private messageService:MessageService,
     private messageToastService:MessageToastService,
   ) { }
-  private subcript:Subscription
-  ngOnInit(): void {
-  }
-  ngOnDestroy(): void {
 
+  private subcript:Subscription
+  //variable unitest
+  public statusLogin:Boolean = false;
+
+  ngOnInit(): void {
   }
 
   onSubmit(value:any){
-    const user = {
+    const user:User = {
       "taiKhoan": value.userName,
       "matKhau": value.password
     }
-    this.authService.LoginUserAPI(user).subscribe(
+    this.statusLogin = true;
+    this.subcript = this.authService.LoginUserAPI(user).subscribe(
       data=>{
         //console.log(data);
         this.messageToastService.shareMessage.next(
@@ -51,5 +55,9 @@ export class SignInComponent implements OnInit, OnDestroy {
         )
       }
     )
+  }
+
+  ngOnDestroy(): void {
+    this.subcript.unsubscribe();
   }
 }

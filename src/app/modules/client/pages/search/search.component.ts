@@ -23,7 +23,7 @@ export class SearchComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.subscrip = this.activatedRoute.params.subscribe((param)=>{
-      let search = param.tag.trim().replace(" ", "-")
+      let search = param.tag?.trim().replace(" ", "-");
       this.inputSearch = search;
     })
     this.getMovieAll();

@@ -4,6 +4,9 @@
     .carousel-item{
       height: 100vh;
       position: relative;
+      @include responsive(full-hd){
+        height: 700px;
+      }
       @include responsive(xl){
         height: 500px;
       }
@@ -57,3 +60,18 @@
     }
   }
 }
+:host ::ng-deep {
+  .p-button{
+    @include responsive(sm){
+      font-size: 10px;
+      padding: 5px;
+    }
+    .p-button-icon{
+      @include responsive(sm){
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+

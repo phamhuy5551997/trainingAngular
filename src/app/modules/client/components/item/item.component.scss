@@ -47,12 +47,12 @@
     }
   }
   .cart__foodter{
-    .p-button{
-      @include responsive(sm){
-        padding: 5px;
-        font-size: 8px;
-      }
-    }
+    // .p-button{
+    //   @include responsive(sm){
+    //     padding: 5px;
+    //     font-size: 8px;
+    //   }
+    // }
   }
   &:hover{
     background-color: #131313;
@@ -86,5 +86,24 @@
   }
   100%{
     transform: scale(1);
+  }
+}
+
+:host ::ng-deep{
+  .p-button{
+    @include responsive(sm){
+      padding: 7px;
+      font-size: 9px;
+    }
+    .p-button-icon{
+      @include responsive(sm){
+        font-size: 9px;
+      }
+    }
+  }
+  .p-rating .p-rating-icon{
+    @include responsive(sm){
+      font-size: 10px;
+    }
   }
 }

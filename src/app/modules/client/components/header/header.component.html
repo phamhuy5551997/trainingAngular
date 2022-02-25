@@ -29,6 +29,7 @@
           pInputText
           [(ngModel)]="searchInput"
           (keyup.enter)="onEnter()"
+          data-testid="search-input"
         />
         <label for="float-input">Search</label>
       </span>
@@ -38,6 +39,7 @@
           icon="pi pi-search"
           class="p-button-rounded"
           (click)="onSearch()"
+          data-testid="search-button"
         ></p-button>
       </span>
     </div>
@@ -116,14 +118,14 @@
   </div>
   <hr />
   <div class="header__sidebar">
-    <p (click)="visibleSidebar1 = false"><i class="pi pi-home"></i> Home</p>
-    <p (click)="visibleSidebar1 = false">
+    <a href="#carousel" (click)="visibleSidebar1 = false"><i class="pi pi-home"></i> Home</a>
+    <a href="#list__movie" (click)="visibleSidebar1 = false">
       <i class="pi pi-align-left"></i> Movie
-    </p>
-    <p (click)="visibleSidebar1 = false">
+    </a>
+    <a href="#footer" (click)="visibleSidebar1 = false">
       <i class="pi pi-info-circle"></i> About
-    </p>
-    <p (click)="visibleSidebar1 = false"><i class="pi pi-phone"></i> Contact</p>
+    </a>
+    <a href="#footer" (click)="visibleSidebar1 = false"><i class="pi pi-phone"></i> Contact</a>
   </div>
   <hr />
   <p-button

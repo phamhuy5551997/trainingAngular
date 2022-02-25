@@ -1,5 +1,6 @@
+import { PrimeNgModule } from './../../../../core/shared/prime-ng/prime-ng.module';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { EditMovieComponent } from './edit-movie.component';
 
 describe('EditMovieComponent', () => {
@@ -8,7 +9,8 @@ describe('EditMovieComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditMovieComponent ]
+      declarations: [ EditMovieComponent ],
+      imports:[HttpClientTestingModule,PrimeNgModule]
     })
     .compileComponents();
   });

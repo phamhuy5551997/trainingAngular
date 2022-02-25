@@ -15,6 +15,10 @@
     max-width: 1360px;
     left: auto;
   }
+  @include responsive(sm){
+    height: 45px;
+    padding: 0 10px;
+  }
   input{
     border-radius: 10px;
     height: 35px;
@@ -33,6 +37,10 @@
       @include responsive(md){
         width: 50px;
         height: 50px;
+      }
+      @include responsive(sm){
+        width: 40px;
+        height: 40px;
       }
       &:hover{
         transform: rotate(180deg);
@@ -59,7 +67,7 @@
             color: #f03;
           }
         }
-        @include responsive(md){
+        @include responsive(lg){
           display: none;
         }
         @include responsive(md){
@@ -94,24 +102,26 @@
     .headerMenu__mobile1{
       display: flex;
       align-items: center;
-      @include responsive(md){
+      @include responsive(lg){
         display: none;
       }
     }
     .headerMenu__mobile2{
       display: none;
-      @include responsive(md){
+      @include responsive(lg){
         display: block;
       }
     }
   }
 }
 .header__sidebar{
-  p{
+  a{
     font-size: 20px;
     font-weight: bolder;
     margin-left: 10px;
-    line-height: 40px;
+    line-height: 50px;
+    display: block;
+    color: #000;
     i{
       font-size: 25px;
       margin-right: 15px;
@@ -119,6 +129,19 @@
     }
     &:hover{
       color: $color-primary;
+    }
+  }
+}
+:host ::ng-deep{
+  .p-button{
+    @include responsive(sm){
+      font-size: 10px;
+      padding: 7px;
+    }
+    .p-button-icon{
+      @include responsive(sm){
+        font-size: 10px;
+      }
     }
   }
 }

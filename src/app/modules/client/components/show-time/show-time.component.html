@@ -1,4 +1,4 @@
-<div id="showTime" *ngIf="time.length > 0;else noShowTime">
+<div id="showTime" *ngIf="time?.length > 0;else noShowTime">
   <div class="p-d-flex">
     <button
       type="button"
@@ -44,15 +44,15 @@
       <ng-template pTemplate="body" let-time>
         <tr>
           <td style="width: 70%">
-            <p>Name: {{ time.tenPhim }}</p>
-            <p>Time: {{ time.thoiLuong }}' minute</p>
+            <p>Name: {{ time?.tenPhim }}</p>
+            <p>Time: {{ time?.thoiLuong }}' minute</p>
             <p>
-              Premiere date: {{ time.ngayChieuGioChieu | date: "dd/MM/yyyy" }}
+              Premiere date: {{ time?.ngayChieuGioChieu | date: "dd/MM/yyyy" }}
             </p>
-            <p>Cinema system: {{ time.thongTinRap.tenHeThongRap }}</p>
-            <p>Theater: {{ time.thongTinRap.tenCumRap }}</p>
-            <p>Cinema room: {{ time.thongTinRap.tenRap }}</p>
-            <p>Fare: {{ time.giaVe }}</p>
+            <p>Cinema system: {{ time?.thongTinRap.tenHeThongRap }}</p>
+            <p>Theater: {{ time?.thongTinRap.tenCumRap }}</p>
+            <p>Cinema room: {{ time?.thongTinRap.tenRap }}</p>
+            <p>Fare: {{ time?.giaVe }}</p>
           </td>
           <td style="width: 30%">
             <button
@@ -61,7 +61,7 @@
               type="button"
               label="Booking Now"
               class="p-button-raised"
-              [routerLink]="'/booking/' + time.maLichChieu"
+              [routerLink]="'/booking/' + time?.maLichChieu"
             ></button>
           </td>
         </tr>

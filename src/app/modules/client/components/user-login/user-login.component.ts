@@ -14,8 +14,8 @@ export class UserLoginComponent implements OnInit {
     if(localStorage.getItem('userLogin')){
       this.user= JSON.parse(localStorage.getItem('userLogin'));
     }
-    this.first = this.user.hoTen.slice(0,1).toUpperCase();
-    console.log('name',this.first);
+    //this.first = this.user.hoTen.slice(0,1).toUpperCase();
+    //console.log('name',this.first);
   }
 
 }

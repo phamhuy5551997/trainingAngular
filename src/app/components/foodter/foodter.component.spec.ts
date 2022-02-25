@@ -19,7 +19,7 @@ describe('FoodterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create footer component', () => {
     expect(component).toBeTruthy();
   });
 });

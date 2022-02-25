@@ -1,5 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { PrimeNgModule } from './../../../../core/shared/prime-ng/prime-ng.module';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { PopUpComponent } from './pop-up.component';
 
 describe('PopUpComponent', () => {
@@ -8,7 +10,13 @@ describe('PopUpComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PopUpComponent ]
+      declarations: [ PopUpComponent ],
+      imports:[
+        PrimeNgModule,
+        HttpClientTestingModule,
+        RouterTestingModule
+      ],
+      providers:[]
     })
     .compileComponents();
   });

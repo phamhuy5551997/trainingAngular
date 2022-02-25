@@ -54,6 +54,8 @@ export class SignUpComponent implements OnInit,OnDestroy {
       {type:'pattern',mgs:'invalid number phone'}
     ],
   }
+  //variable unit test
+  public signUpSuccessfull:boolean=false;
 
   ngOnInit(): void {
     this.formSignInReactive();
@@ -116,6 +118,7 @@ export class SignUpComponent implements OnInit,OnDestroy {
   }
   //-------
   onConfirm() {
+    this.signUpSuccessfull=true
     this.messageService.clear('signIn');
     const dataSignIn = {
       "taiKhoan": this.FormSignIn.get('userName').value,
@@ -131,7 +134,7 @@ export class SignUpComponent implements OnInit,OnDestroy {
     )
     this.subcript = this.authService.SignInUserAPI(dataSignIn).subscribe(
       data=>{
-      //console.log('success',data);
+        //console.log('success',data);
         this.messageToastService.shareMessage.next(
           { severity:'success', summary: 'Success', detail: 'Successful account registration !'}
         )

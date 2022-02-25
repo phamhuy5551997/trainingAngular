@@ -77,11 +77,11 @@ export class AuthService {
     )
   }
   //Delete User{
-    DeleteUser(user:string):Observable<any>{
-      const token = this.GetTokenUser();
-      return this.http.delete(`${this.Url}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,token).pipe(
-        catchError(this.handleError)
-      )
+  DeleteUser(user:string):Observable<any>{
+    const token = this.GetTokenUser();
+    return this.http.delete(`${this.Url}/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,token).pipe(
+      catchError(this.handleError)
+    )
   }
 
 }

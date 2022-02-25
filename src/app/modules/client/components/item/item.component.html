@@ -1,13 +1,13 @@
 <section id="cart__movie">
   <div class="cart__img">
-    <img data-src="{{ movie.hinhAnh }}" data-sizes="auto" alt="..." width="200px" loading="lazy" />
-    <div class="show__case" [routerLink]="'/detail/'+ movie.maPhim">
+    <img data-src="{{ movie?.hinhAnh }}" data-sizes="auto" alt="..." width="200px" loading="lazy" />
+    <div class="show__case" [routerLink]="'/detail/'+ movie?.maPhim">
       <i class="pi pi-caret-right"></i>
     </div>
   </div>
   <div class="cart__content">
-    <p pTooltip="{{ movie.tenPhim }}" tooltipPosition="top" placeholder="Top">
-      {{ movie.tenPhim | subStringPipe: 15 }}
+    <p pTooltip="{{ movie?.tenPhim }}" tooltipPosition="top" placeholder="Top">
+      {{ movie?.tenPhim | subStringPipe: 15 }}
     </p>
   </div>
   <div class="cart__foodter">
@@ -19,7 +19,7 @@
         label="Detail"
         icon="pi pi-info-circle"
         class="p-mr-3"
-        [routerLink]="'/detail/'+ movie.maPhim"
+        [routerLink]="'/detail/'+ movie?.maPhim"
       ></button>
       <button
         pButton
