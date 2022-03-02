@@ -9,6 +9,7 @@
     position: absolute;
     top:10px;
     left: 10px;
+    z-index: 100;
   }
   #form__signIn{
     input.ng-invalid.ng-touched{
@@ -21,24 +22,36 @@
     height: 100vh;
     background-color: rgba($color: #000000, $alpha: 0.8);
     text-align: center;
-    padding: 60px 15%;
+    position: relative;
+    z-index: 90;
     @include responsive(xl){
-      padding-top: 150px;
-      width: 70%;
+      width: 80%;
     }
     @include responsive(sm){
-      padding-top: 50px;
       width: 100%;
+    }
+    .form__signIn{
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%,-40%);
+      border: 2px solid #fff;
+      border-radius: 20px;
+      padding: 40px 60px;
+      width: 70%;
+      @include responsive(sm){
+        width: 90%;
+      }
     }
     .signIn__overlay{
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      @include responsive(xl){
-        left: 70%;
-        transform: translate(-50%,-70%);
-      }
+      left: 100%;
+      transform: translate(-50%,-100%);
+      // @include responsive(xl){
+      //   left: 70%;
+      //   transform: translate(-50%,-70%);
+      // }
       @include responsive(sm){
         display: none;
       }

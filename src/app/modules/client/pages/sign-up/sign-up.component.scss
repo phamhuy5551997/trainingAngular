@@ -10,11 +10,6 @@
     top: 10px;
     left: 10px;
     z-index: 100;
-    // .btn{
-    //   padding: 7px 25px;
-    //   font-weight: bold;
-    //   font-size: 14px;
-    // }
   }
   #form__signUp{
     z-index: 90;
@@ -26,16 +21,20 @@
     background-color: rgba($color: #000000, $alpha: 0.8);
     position: relative;
     @include responsive(xl){
-      width: 60%;
-      padding: 80px;
+      width: 70%;
     }
     @include responsive(md){
-      width: 70%;
-      padding: 150px;
+      width: 80%;
     }
     @include responsive(sm){
       width: 100%;
-      padding: 50px 0 ;
+    }
+    .form__signUp{
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%,-40%);
+      //width: 70%;
     }
     .icon__overlay{
       position: absolute;
@@ -62,12 +61,16 @@
     input{
       height: 38px;
       font-size: 12px;
+      width: 230px;
     }
     .input__form{
       margin-bottom: 25px;
       justify-content: center;
     }
     .btn__submit{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
       .btn{
         outline: none;
         padding: 7px 25px;
@@ -77,7 +80,7 @@
         border-color: $color-primary;
         color: #fff;
       }
-      span{
+      p{
         color: #fff;
         font-size: 14px;
         &:hover{
@@ -87,20 +90,13 @@
     }
     .alert.alert-danger{
       padding: 3px 5px;
-      width: 36%;
+      width: 55%;
       text-align: left;
       margin: -20px auto 20px;
-      @include responsive(xl){
-        width: 47%;
-      }
-      @include responsive(md){
-        width: 89%;
-      }
-      @include responsive(sm){
-        width: 52%;
-      }
-      @include responsive(xs){
-        width: 58%;
+      background-color: transparent;
+      border: none;
+      small{
+        font-weight: bold;
       }
     }
   }

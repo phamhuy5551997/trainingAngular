@@ -23,6 +23,7 @@ export class CarouselComponent implements OnInit {
   getlist(){
     let data = this.carouselService.getListCarousel();
     this.list = [...data]
+    return true;
   }
 
 }

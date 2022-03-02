@@ -2,53 +2,56 @@
   <div class="btn__home">
     <p-button label="Home" icon="pi pi-arrow-left" routerLink="/"></p-button>
   </div>
+
   <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" id="form__signIn">
-    <h3>Sign-In</h3>
     <div class="signIn__overlay">
       <i class="pi pi-user"></i>
     </div>
-    <div class="signIn__input">
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-        <input
-          type="text"
-          pInputText
-          #userName="ngModel"
-          name="userName"
-          ngModel
-          required
-          maxlength="30"
-          placeholder="Username"
-        />
-      </div>
-      <div class="signIn__alert">
-        <div *ngIf="userName.invalid && userName.touched">
-          <small class="p-error" *ngIf="userName?.errors?.required">Username Please do not leave it blank</small>
+    <div class="form__signIn">
+      <h3>Sign-In</h3>
+      <div class="signIn__input">
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+          <input
+            type="text"
+            pInputText
+            #userName="ngModel"
+            name="userName"
+            ngModel
+            required
+            maxlength="30"
+            placeholder="Username"
+          />
+        </div>
+        <div class="signIn__alert">
+          <div *ngIf="userName.invalid && userName.touched">
+            <small class="p-error" *ngIf="userName?.errors?.required">Username Please do not leave it blank</small>
+          </div>
+        </div>
+        <!-- ---- -->
+        <div class="p-inputgroup">
+          <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+          <input
+            type="text"
+            pInputText
+            #password="ngModel"
+            name="password"
+            ngModel
+            required
+            maxlength="30"
+            placeholder="Password"
+          />
         </div>
       </div>
-      <!-- ---- -->
-      <div class="p-inputgroup">
-        <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-        <input
-          type="text"
-          pInputText
-          #password="ngModel"
-          name="password"
-          ngModel
-          required
-          maxlength="30"
-          placeholder="Password"
-        />
+      <div class="signIn__alert">
+        <div *ngIf="password.invalid && password.touched">
+          <small class="p-error"  *ngIf="password?.errors?.required">Password please do not leave it blank</small>
+        </div>
       </div>
-    </div>
-    <div class="signIn__alert">
-      <div *ngIf="password.invalid && password.touched">
-        <small class="p-error"  *ngIf="password?.errors?.required">Password please do not leave it blank</small>
+      <div class="signIn__btn">
+        <button pButton pRipple type="submit" label="Sign-In" [disabled]="loginForm.invalid"></button>
+        <span routerLink="/sign-up">Register now ?</span>
       </div>
-    </div>
-    <div class="signIn__btn">
-      <button pButton pRipple type="submit" label="Sign-In" [disabled]="loginForm.invalid"></button>
-      <span routerLink="/sign-up">Register ?</span>
     </div>
   </form>
 </section>
