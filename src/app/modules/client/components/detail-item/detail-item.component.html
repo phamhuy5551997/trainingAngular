@@ -21,7 +21,10 @@
         </div>
         <p style="text-align: center">Code -- {{ movie.maPhim }} --</p>
         <p style="text-align: center">Rating -- {{ movie.danhGia }} -- IMDB</p>
-        <p style="text-align: justify">Description: {{ movie.moTa }}</p>
+        <div class="descript__movie">
+          <p class="movie__title">Description:</p>
+          <p style="text-align: justify"> {{ movie.moTa |subStringPipe : 200 }}</p>
+        </div>
       </div>
     </div>
     <div class="detail__2" *ngIf="movie.lichChieu.length > 0;else noShowTime">

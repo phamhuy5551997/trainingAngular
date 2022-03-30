@@ -34,7 +34,13 @@
       top: 40%;
       left: 50%;
       transform: translate(-50%,-40%);
-      //width: 70%;
+      border: 2px solid #fff;
+      border-radius: 20px;
+      padding: 30px 50px;
+      box-shadow: 0 0 3px 5px rgba($color: #fff, $alpha: 0.5);
+      @include responsive(sm){
+        padding: 30px;
+      }
     }
     .icon__overlay{
       position: absolute;
@@ -44,6 +50,9 @@
       padding: 20px;
       border-radius: 50%;
       transform: translateY(-50%);
+      @include responsive(sm){
+        display: none;
+      }
       i{
         font-size: 20px;
       }

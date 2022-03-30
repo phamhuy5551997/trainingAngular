@@ -100,10 +100,10 @@ export class EditMovieComponent implements OnInit {
           this.messageToastService.shareMessage.next(
             {severity:'success', summary: 'Success', detail: 'Update movie successfull !'}
           )
-          const a = setTimeout(() => {
-            window.location.reload()
-            clearTimeout(a);
-          }, 5000);
+          // const a = setTimeout(() => {
+          //   window.location.reload()
+          //   clearTimeout(a);
+          // }, 5000);
         }
       }
     )

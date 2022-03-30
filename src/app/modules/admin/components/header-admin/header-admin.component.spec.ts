@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PrimeNgModule } from 'src/app/core/shared/prime-ng/prime-ng.module';
 import { HeaderAdminComponent } from './header-admin.component';
-import {CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 describe('HeaderAdminComponent', () => {
   let component: HeaderAdminComponent;
@@ -11,7 +11,9 @@ describe('HeaderAdminComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ HeaderAdminComponent ],
       imports:[PrimeNgModule],
-      schemas:[CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA]
+      schemas:[
+        CUSTOM_ELEMENTS_SCHEMA,
+      ]
     })
     .compileComponents();
   });

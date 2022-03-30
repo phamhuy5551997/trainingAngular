@@ -39,6 +39,7 @@
       border-radius: 20px;
       padding: 40px 60px;
       width: 70%;
+      box-shadow: 0 0 3px 5px rgba(#fff,0.5),inset 0 0 3px 4px rgba(#fff,0.3);
       @include responsive(sm){
         width: 90%;
       }
@@ -69,6 +70,9 @@
     }
     .signIn__alert{
       height: 40px;
+      small{
+        font-weight: bold;
+      }
     }
     .signIn__btn{
       display: flex;

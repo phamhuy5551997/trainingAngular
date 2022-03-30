@@ -37,7 +37,7 @@ export class MultipeCarouselComponent implements OnInit,OnDestroy {
           numScroll: 1
       },
       {
-        breakpoint: '375px',
+        breakpoint: '400px',
         numVisible: 1,
         numScroll: 1
       }

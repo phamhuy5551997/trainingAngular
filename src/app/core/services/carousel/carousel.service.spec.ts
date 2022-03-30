@@ -10,7 +10,14 @@ describe('CarouselService', () => {
     service = TestBed.inject(CarouselService);
   });
 
-  it('should be created', () => {
+  it('should be created service carousel', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should test function getListCarousel',()=>{
+    let fakeData = [];
+    spyOn(service,'getListCarousel').and.returnValue([]);
+    expect(service.getListCarousel()).toEqual([]);
+  })
+
 });

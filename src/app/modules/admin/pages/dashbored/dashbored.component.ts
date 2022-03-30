@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashbored.component.scss']
 })
 export class DashboredComponent implements OnInit {
-  databar: any;
+  databar?: any;
   data1:any=[];
   data2:any=[];
   constructor() {

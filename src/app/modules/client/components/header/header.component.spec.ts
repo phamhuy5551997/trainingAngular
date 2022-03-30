@@ -6,7 +6,7 @@ import { DebugElement, CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA } from '@angular/
 import { RouterTestingModule } from '@angular/router/testing';
 import { HeaderComponent } from './header.component';
 
-fdescribe('HeaderComponent', () => {
+describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let debugElement: DebugElement;
